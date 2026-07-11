@@ -33,7 +33,7 @@ export function SplashScreen() {
             className="w-full h-full object-cover filter contrast-[1.15] saturate-[1.1] brightness-[1.05]"
             onEnded={() => setShow(false)}
           >
-            <source src="/intro.mp4.mp4" type="video/mp4" />
+            <source src="/intro.mp4 (2).mp4" type="video/mp4" />
           </video>
 
           {/* Premium "Skip Intro" Button */}
