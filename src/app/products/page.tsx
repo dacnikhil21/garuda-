@@ -44,16 +44,23 @@ const products = [
 
 export default function ProductsPage() {
   return (
-    <div className="min-h-screen flex flex-col bg-slate-50 pt-24">
+    <div className="min-h-screen flex flex-col bg-slate-50">
       
-      {/* Products Hero */}
-      <section className="bg-primary py-20 relative overflow-hidden">
-        <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-accent/10 rounded-full blur-[100px] translate-x-1/2 -translate-y-1/2 pointer-events-none" />
+      {/* Products Premium Hero */}
+      <section className="relative pt-40 pb-24 overflow-hidden bg-[#020813]">
+        {/* Premium Dark Gradient & Glows */}
+        <div className="absolute inset-0 bg-gradient-to-br from-[#020813] via-[#051229] to-[#020813]" />
+        <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-accent/5 rounded-full blur-[150px] translate-x-1/3 -translate-y-1/3 pointer-events-none" />
+        <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-primary/20 rounded-full blur-[120px] -translate-x-1/3 translate-y-1/3 pointer-events-none" />
+        
+        {/* Subtle grid pattern for texture */}
+        <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-20 mix-blend-overlay" />
+
         <div className="container mx-auto px-6 relative z-10 text-center">
           <motion.span 
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
-            className="inline-block py-1 px-3 rounded-full bg-accent/20 text-accent border border-accent/30 text-xs font-bold tracking-[0.2em] uppercase mb-4"
+            className="inline-block py-1.5 px-4 rounded-full bg-accent/10 text-accent border border-accent/20 text-xs font-bold tracking-[0.2em] uppercase mb-6 backdrop-blur-md"
           >
             Our Catalog
           </motion.span>
@@ -63,7 +70,7 @@ export default function ProductsPage() {
             transition={{ delay: 0.1 }}
             className="text-4xl md:text-6xl font-heading font-bold text-white mb-6"
           >
-            Global <span className="text-accent">Export Products</span>
+            Global <span className="text-accent drop-shadow-[0_0_15px_rgba(212,175,55,0.3)]">Export Products</span>
           </motion.h1>
           <motion.p 
             initial={{ opacity: 0, y: 20 }}
