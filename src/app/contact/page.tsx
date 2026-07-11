@@ -1,7 +1,186 @@
+"use client";
+
+import { motion } from "framer-motion";
+import { Mail, MapPin, Phone, Send } from "lucide-react";
+import { useState } from "react";
+
 export default function ContactPage() {
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitted, setSubmitted] = useState(false);
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+    // Simulate API call
+    setTimeout(() => {
+      setIsSubmitting(false);
+      setSubmitted(true);
+    }, 1500);
+  };
+
   return (
-    <div className="pt-32 pb-24 min-h-screen flex items-center justify-center bg-gray-50">
-      <h1 className="text-4xl font-heading font-bold text-primary">Contact Us - Coming Soon</h1>
+    <div className="min-h-screen flex flex-col bg-slate-50 pt-24">
+      
+      {/* Contact Hero Section */}
+      <section className="bg-[#0B2B5E] py-20 relative overflow-hidden">
+        <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-accent/10 rounded-full blur-[100px] translate-x-1/2 -translate-y-1/2 pointer-events-none" />
+        <div className="container mx-auto px-6 relative z-10 text-center">
+          <motion.span 
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="inline-block py-1 px-4 rounded-full bg-accent/20 text-accent border border-accent/30 text-xs font-bold tracking-[0.2em] uppercase mb-6"
+          >
+            Get In Touch
+          </motion.span>
+          <motion.h1 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.1 }}
+            className="text-4xl md:text-5xl lg:text-6xl font-heading font-bold text-white mb-6 leading-tight"
+          >
+            Let's Discuss <span className="text-accent">Business</span>
+          </motion.h1>
+          <motion.p 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.2 }}
+            className="text-white/70 max-w-2xl mx-auto text-lg leading-relaxed"
+          >
+            Whether you need a custom quote, bulk orders, or logistical support, our global export team is ready to assist you 24/7.
+          </motion.p>
+        </div>
+      </section>
+
+      {/* Contact Content */}
+      <section className="py-24 relative -mt-10">
+        <div className="container mx-auto px-6">
+          <div className="flex flex-col lg:flex-row gap-12 max-w-6xl mx-auto">
+            
+            {/* Contact Info Cards */}
+            <div className="w-full lg:w-1/3 flex flex-col gap-6">
+              
+              <motion.div 
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.3 }}
+                className="bg-white p-8 rounded-2xl border border-gray-100 shadow-lg relative overflow-hidden group hover:-translate-y-1 transition-all duration-300"
+              >
+                <div className="absolute top-0 right-0 w-24 h-24 bg-primary/5 rounded-bl-[100px] -z-10 group-hover:bg-primary/10 transition-colors" />
+                <div className="w-12 h-12 rounded-full bg-accent/20 flex items-center justify-center mb-6">
+                  <Phone className="w-5 h-5 text-accent" />
+                </div>
+                <h3 className="text-sm font-bold tracking-[0.1em] uppercase text-slate-400 mb-2">Call Us Directly</h3>
+                <p className="text-xl font-heading font-bold text-primary">+91 8143944888</p>
+                <p className="text-sm text-slate-500 mt-2">Available 24/7 for urgent inquiries.</p>
+              </motion.div>
+
+              <motion.div 
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.4 }}
+                className="bg-white p-8 rounded-2xl border border-gray-100 shadow-lg relative overflow-hidden group hover:-translate-y-1 transition-all duration-300"
+              >
+                <div className="absolute top-0 right-0 w-24 h-24 bg-primary/5 rounded-bl-[100px] -z-10 group-hover:bg-primary/10 transition-colors" />
+                <div className="w-12 h-12 rounded-full bg-accent/20 flex items-center justify-center mb-6">
+                  <Mail className="w-5 h-5 text-accent" />
+                </div>
+                <h3 className="text-sm font-bold tracking-[0.1em] uppercase text-slate-400 mb-2">Email Us</h3>
+                <p className="text-xl font-heading font-bold text-primary">sales@garuda.com</p>
+                <p className="text-sm text-slate-500 mt-2">We reply within 2 hours.</p>
+              </motion.div>
+
+              <motion.div 
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.5 }}
+                className="bg-white p-8 rounded-2xl border border-gray-100 shadow-lg relative overflow-hidden group hover:-translate-y-1 transition-all duration-300"
+              >
+                <div className="absolute top-0 right-0 w-24 h-24 bg-primary/5 rounded-bl-[100px] -z-10 group-hover:bg-primary/10 transition-colors" />
+                <div className="w-12 h-12 rounded-full bg-accent/20 flex items-center justify-center mb-6">
+                  <MapPin className="w-5 h-5 text-accent" />
+                </div>
+                <h3 className="text-sm font-bold tracking-[0.1em] uppercase text-slate-400 mb-2">Global Headquarters</h3>
+                <p className="text-lg font-heading font-bold text-primary">Hyderabad, India</p>
+                <p className="text-sm text-slate-500 mt-2">Serving 40+ countries globally.</p>
+              </motion.div>
+
+            </div>
+
+            {/* Contact Form */}
+            <motion.div 
+              initial={{ opacity: 0, x: 30 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ delay: 0.4 }}
+              className="w-full lg:w-2/3 bg-white p-10 md:p-12 rounded-[2rem] border border-gray-100 shadow-xl relative"
+            >
+              <h2 className="text-3xl font-heading font-bold text-primary mb-2">Request a Quote</h2>
+              <p className="text-slate-500 mb-8">Fill out the form below and our export specialists will get back to you immediately.</p>
+
+              {submitted ? (
+                <div className="h-64 flex flex-col items-center justify-center text-center bg-slate-50 rounded-xl border border-dashed border-gray-200">
+                  <div className="w-16 h-16 rounded-full bg-green-100 flex items-center justify-center mb-4">
+                    <Send className="w-8 h-8 text-green-600 ml-1" />
+                  </div>
+                  <h3 className="text-2xl font-bold text-primary mb-2">Message Sent!</h3>
+                  <p className="text-slate-500">We will be in touch with you shortly.</p>
+                </div>
+              ) : (
+                <form onSubmit={handleSubmit} className="space-y-6">
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div className="space-y-2">
+                      <label className="text-sm font-bold text-slate-700 uppercase tracking-wider">Full Name</label>
+                      <input required type="text" className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:border-accent focus:ring-2 focus:ring-accent/20 outline-none transition-all bg-slate-50 focus:bg-white" placeholder="John Doe" />
+                    </div>
+                    <div className="space-y-2">
+                      <label className="text-sm font-bold text-slate-700 uppercase tracking-wider">Company Name</label>
+                      <input required type="text" className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:border-accent focus:ring-2 focus:ring-accent/20 outline-none transition-all bg-slate-50 focus:bg-white" placeholder="Global Imports LLC" />
+                    </div>
+                  </div>
+
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div className="space-y-2">
+                      <label className="text-sm font-bold text-slate-700 uppercase tracking-wider">Email Address</label>
+                      <input required type="email" className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:border-accent focus:ring-2 focus:ring-accent/20 outline-none transition-all bg-slate-50 focus:bg-white" placeholder="john@company.com" />
+                    </div>
+                    <div className="space-y-2">
+                      <label className="text-sm font-bold text-slate-700 uppercase tracking-wider">Phone / WhatsApp</label>
+                      <input required type="tel" className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:border-accent focus:ring-2 focus:ring-accent/20 outline-none transition-all bg-slate-50 focus:bg-white" placeholder="+1 (555) 000-0000" />
+                    </div>
+                  </div>
+
+                  <div className="space-y-2">
+                    <label className="text-sm font-bold text-slate-700 uppercase tracking-wider">Product Interest</label>
+                    <select required className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:border-accent focus:ring-2 focus:ring-accent/20 outline-none transition-all bg-slate-50 focus:bg-white text-slate-700">
+                      <option value="">Select a Product Category</option>
+                      <option value="rice">Premium Rice (Basmati / Non-Basmati)</option>
+                      <option value="vegetables">Fresh Vegetables</option>
+                      <option value="makhana">Makhana (Fox Nuts)</option>
+                      <option value="fruits">Export Quality Fruits</option>
+                      <option value="spices">Authentic Spices</option>
+                      <option value="other">Other / General Inquiry</option>
+                    </select>
+                  </div>
+
+                  <div className="space-y-2">
+                    <label className="text-sm font-bold text-slate-700 uppercase tracking-wider">Message Details</label>
+                    <textarea required rows={4} className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:border-accent focus:ring-2 focus:ring-accent/20 outline-none transition-all bg-slate-50 focus:bg-white resize-none" placeholder="Please provide details about your required quantities, destination port, etc." />
+                  </div>
+
+                  <button 
+                    type="submit" 
+                    disabled={isSubmitting}
+                    className="w-full bg-[#0B2B5E] hover:bg-accent text-white py-4 rounded-lg font-bold tracking-[0.2em] uppercase transition-all duration-300 flex items-center justify-center gap-2 disabled:opacity-70"
+                  >
+                    {isSubmitting ? "Sending..." : "Submit Quote Request"} <Send className="w-4 h-4" />
+                  </button>
+                </form>
+              )}
+            </motion.div>
+
+          </div>
+        </div>
+      </section>
+
     </div>
   );
 }
