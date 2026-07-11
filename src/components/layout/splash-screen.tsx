@@ -31,7 +31,6 @@ export function SplashScreen() {
             muted
             playsInline
             className="w-full h-full object-cover filter contrast-[1.15] saturate-[1.1] brightness-[1.05]"
-            style={{ imageRendering: "high-quality" }}
             onEnded={() => setShow(false)}
           >
             <source src="/intro.mp4.mp4" type="video/mp4" />
