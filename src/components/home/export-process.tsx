@@ -28,31 +28,34 @@ const processes = [
 
 export function ExportProcess() {
   return (
-    <section className="py-32 bg-white relative overflow-hidden">
+    <section className="py-32 bg-slate-50 relative overflow-hidden">
       <div className="container mx-auto px-6">
-        <div className="text-center mb-20">
+        <div className="text-center mb-24 flex flex-col items-center">
+          <span className="inline-block py-1 px-3 rounded-full bg-accent/10 text-accent border border-accent/20 text-xs font-bold tracking-[0.2em] uppercase mb-6">
+            How It Works
+          </span>
           <motion.h2 
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             className="text-4xl md:text-5xl font-heading font-bold text-primary mb-6"
           >
-            Our Export Process
+            Our Export Timeline
           </motion.h2>
           <motion.p 
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
-            className="text-lg text-muted-foreground max-w-2xl mx-auto"
+            className="text-lg text-slate-500 max-w-2xl mx-auto"
           >
-            From the fertile lands of India to global markets, our streamlined process ensures freshness, quality, and timely delivery.
+            From the fertile lands of India to global markets, our streamlined process ensures freshness, unmatched quality, and timely delivery.
           </motion.p>
         </div>
 
         <div className="relative">
-          {/* Connecting Line */}
-          <div className="absolute top-1/2 left-0 w-full h-0.5 bg-border hidden lg:block -translate-y-1/2" />
+          {/* Connecting Dashed Line */}
+          <div className="absolute top-1/2 left-0 w-full h-[2px] bg-transparent border-t-2 border-dashed border-accent/40 hidden lg:block -translate-y-1/2 z-0" />
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 relative z-10">
             {processes.map((step, index) => (
@@ -62,20 +65,20 @@ export function ExportProcess() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.15 }}
-                className="bg-white p-8 rounded-2xl border border-border/50 shadow-lg hover:shadow-xl transition-shadow relative group"
+                className="bg-white p-8 rounded-2xl border border-gray-100 shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-xl hover:-translate-y-1 transition-all duration-300 relative group flex flex-col items-center text-center"
               >
-                {/* Number Badge */}
-                <div className="absolute -top-6 left-1/2 -translate-x-1/2 w-12 h-12 rounded-full bg-accent text-white flex items-center justify-center font-bold font-heading text-xl border-4 border-white">
+                {/* Premium Number Badge */}
+                <div className="absolute -top-6 w-12 h-12 rounded-full bg-white text-primary flex items-center justify-center font-bold font-heading text-lg border-4 border-slate-50 shadow-md group-hover:bg-accent group-hover:text-white transition-colors duration-300">
                   {index + 1}
                 </div>
                 
-                <div className="text-primary mb-6 mt-4 flex justify-center transform group-hover:scale-110 transition-transform duration-300">
+                <div className="w-16 h-16 rounded-full bg-primary/5 text-accent mb-6 mt-4 flex items-center justify-center transform group-hover:scale-110 group-hover:bg-primary/10 transition-all duration-300">
                   {step.icon}
                 </div>
-                <h3 className="text-xl font-heading font-bold text-primary text-center mb-3">
+                <h3 className="text-xl font-heading font-bold text-primary mb-3">
                   {step.title}
                 </h3>
-                <p className="text-center text-muted-foreground text-sm leading-relaxed">
+                <p className="text-slate-500 text-sm leading-relaxed">
                   {step.description}
                 </p>
               </motion.div>
