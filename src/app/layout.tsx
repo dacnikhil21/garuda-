@@ -19,6 +19,8 @@ export const metadata: Metadata = {
   description: "Premium Agricultural Exports with Trust, Quality and Global Reach.",
 };
 
+import { SplashScreen } from "@/components/layout/splash-screen";
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -30,6 +32,7 @@ export default function RootLayout({
       className={`${inter.variable} ${playfair.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col font-sans">
+        <SplashScreen />
         <Navbar />
         <main className="flex-1">
           {children}

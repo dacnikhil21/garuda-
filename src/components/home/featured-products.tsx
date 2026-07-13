@@ -2,40 +2,25 @@
 
 import { motion } from "framer-motion";
 import Link from "next/link";
-import { ArrowRight, Leaf, Apple, Wheat, Sprout, ExternalLink } from "lucide-react";
+import { ExternalLink, MessageCircle } from "lucide-react";
 
 const products = [
-  {
-    name: "Premium Rice",
-    description: "High-quality Basmati and Non-Basmati rice sourced from trusted Indian farmers.",
-    image: "https://images.unsplash.com/photo-1536304929831-ee1ca9d44906?q=80&w=2000&auto=format&fit=crop",
-    icon: Wheat,
-    href: "/products/rice",
-  },
-  {
-    name: "Fresh Vegetables",
-    description: "Farm fresh vegetables packed with international export standards for maximum shelf life.",
-    image: "https://images.unsplash.com/photo-1598170845058-32b9d6a5da37?q=80&w=2000&auto=format&fit=crop",
-    icon: Sprout,
-    href: "/products/vegetables",
-  },
-  {
-    name: "Authentic Spices",
-    description: "Rich, aromatic Indian spices including Turmeric, Cumin, and Cardamom.",
-    image: "https://images.unsplash.com/photo-1596040033229-a9821ebd058d?q=80&w=2000&auto=format&fit=crop",
-    icon: Leaf,
-    href: "/products/spices",
-  },
-  {
-    name: "Export Quality Fruits",
-    description: "Naturally grown tropical fruits exported with freshness and extreme care.",
-    image: "https://images.unsplash.com/photo-1610832958506-aa56368176cf?q=80&w=2000&auto=format&fit=crop",
-    icon: Apple,
-    href: "/products/fruits",
-  },
+  { name: "Basmathi Rice", category: "Rice", description: "Premium aromatic Basmathi rice known for its extra-long slender grains.", image: "https://image.pollinations.ai/prompt/long%20grain%20basmati%20rice%20in%20a%20wooden%20bowl?width=800&height=800&nologo=true" },
+  { name: "Sona Masuri", category: "Rice", description: "Lightweight and aromatic medium-grain rice perfect for daily consumption.", image: "https://image.pollinations.ai/prompt/medium%20grain%20sona%20masoori%20rice%20uncooked?width=800&height=800&nologo=true" },
+  { name: "Mirchi G4", category: "Vegetables", description: "Highly sought-after G4 green chillies known for their intense spice.", image: "https://image.pollinations.ai/prompt/spicy%20dry%20red%20chilli%20peppers%20pile?width=800&height=800&nologo=true" },
+  { name: "Onions", category: "Vegetables", description: "Export-quality pungent and crisp onions directly from Indian farms.", image: "https://image.pollinations.ai/prompt/fresh%20red%20onions%20agricultural%20export?width=800&height=800&nologo=true" },
+  { name: "Alphonso Mango", category: "Fruits", description: "The 'King of Mangos', featuring unmatched sweetness and creamy texture.", image: "https://image.pollinations.ai/prompt/fresh%20alphonso%20mango%20yellow%20ripe?width=800&height=800&nologo=true" },
+  { name: "Pomegranate", category: "Fruits", description: "Rich, ruby-red pomegranates packed with flavor and antioxidants.", image: "https://image.pollinations.ai/prompt/fresh%20red%20pomegranate%20cut%20open%20with%20seeds?width=800&height=800&nologo=true" },
+  { name: "Cardamom", category: "Spices", description: "Premium green cardamom pods with intense aroma and complex flavor.", image: "https://image.pollinations.ai/prompt/green%20cardamom%20pods%20spices?width=800&height=800&nologo=true" },
+  { name: "Premium Makhana", category: "Makhana", description: "Finest quality fox nuts, a perfect healthy snack.", image: "https://image.pollinations.ai/prompt/white%20makhana%20fox%20nuts%20in%20a%20bowl?width=800&height=800&nologo=true" }
 ];
 
 export function FeaturedProducts() {
+  const getWhatsAppLink = (productName: string) => {
+    const message = `Hello Garuda Global Exports, I am interested in inquiring about ${productName}.`;
+    return `https://wa.me/918143944888?text=${encodeURIComponent(message)}`;
+  };
+
   return (
     <section className="py-24 bg-white relative">
       <div className="container mx-auto px-6">
@@ -68,65 +53,66 @@ export function FeaturedProducts() {
         </div>
 
         {/* Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8 px-4 sm:px-0">
           {products.map((product, index) => {
-            const Icon = product.icon;
             return (
               <motion.div
                 key={product.name}
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.15 }}
-                className="group bg-white rounded-2xl overflow-hidden border border-gray-100 shadow-md hover:shadow-xl transition-all duration-300 flex flex-col"
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                className="group bg-white rounded-2xl overflow-hidden border border-gray-100 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col h-auto sm:h-[420px]"
               >
                 {/* Image Top */}
-                <div className="relative h-56 overflow-hidden bg-gray-50 p-2">
+                <div className="relative h-48 sm:h-56 overflow-hidden bg-gray-50 p-2">
                    <div className="w-full h-full rounded-xl overflow-hidden relative">
                       <img 
                         src={product.image} 
                         alt={product.name}
                         className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700 ease-out"
                       />
-                      <div className="absolute inset-0 bg-black/10 group-hover:bg-black/0 transition-colors duration-500" />
-                   </div>
-                   
-                   {/* Floating Icon */}
-                   <div className="absolute -bottom-6 left-1/2 -translate-x-1/2 w-12 h-12 rounded-full bg-primary flex items-center justify-center border-4 border-white z-10 shadow-sm">
-                     <Icon className="w-5 h-5 text-white" />
                    </div>
                 </div>
 
                 {/* Content */}
-                <div className="pt-10 pb-6 px-6 text-center flex flex-col flex-grow items-center">
-                  <h3 className="text-xl font-heading font-bold text-primary mb-3">
+                <div className="p-4 sm:p-6 flex flex-col flex-grow">
+                  <div className="flex items-center gap-2 mb-2">
+                    <span className="text-[0.6rem] sm:text-[0.65rem] font-bold tracking-widest uppercase text-accent bg-accent/10 px-2 py-1 rounded">
+                      {product.category}
+                    </span>
+                  </div>
+                  <h3 className="text-lg sm:text-xl font-heading font-bold text-[#0B1F3A] mb-4 sm:mb-auto">
                     {product.name}
                   </h3>
-                  <p className="text-sm text-slate-500 mb-6 leading-relaxed line-clamp-3">
-                    {product.description}
-                  </p>
                   
-                  <div className="mt-auto w-full flex flex-col gap-3">
-                    {/* View Details Button */}
+                  <div className="flex flex-col gap-2 sm:gap-3 mt-auto">
                     <Link 
-                      href={product.href}
-                      className="w-full py-2.5 rounded border border-primary/20 text-primary text-xs font-bold tracking-wider uppercase flex items-center justify-center gap-2 hover:bg-primary/5 transition-colors"
+                      href={`/products/${product.name.toLowerCase().replace(/\s+/g, '-')}`}
+                      className="w-full py-2.5 rounded border border-gray-200 text-gray-600 text-[10px] sm:text-xs font-bold tracking-wider uppercase flex items-center justify-center gap-2 hover:bg-gray-50 hover:border-gray-300 transition-colors"
                     >
-                      View Details <ExternalLink className="w-3.5 h-3.5" />
+                      View Details <ExternalLink className="w-3 sm:w-3.5 h-3 sm:h-3.5" />
                     </Link>
                     
-                    {/* Get Quote Button */}
-                    <Link 
-                      href={`/contact?product=${encodeURIComponent(product.name)}`}
-                      className="w-full py-2.5 rounded bg-accent text-white text-xs font-bold tracking-wider uppercase hover:bg-accent/90 transition-colors shadow-sm"
+                    <a 
+                      href={getWhatsAppLink(product.name)}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="w-full py-2.5 rounded bg-[#25D366] text-white text-[10px] sm:text-xs font-bold tracking-wider uppercase hover:bg-[#20bd5a] transition-colors shadow-sm flex items-center justify-center gap-2"
                     >
-                      Get a Quote
-                    </Link>
+                      <MessageCircle className="w-3.5 sm:w-4 h-3.5 sm:h-4" /> WhatsApp
+                    </a>
                   </div>
                 </div>
               </motion.div>
             );
           })}
+        </div>
+        
+        <div className="mt-16 text-center flex justify-center">
+          <Link href="/products" className="bg-primary hover:bg-accent hover:text-primary text-white px-8 py-4 rounded-full text-sm font-bold tracking-widest uppercase transition-colors">
+            View All Products
+          </Link>
         </div>
 
       </div>

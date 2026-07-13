@@ -7,7 +7,7 @@ export function Hero() {
   return (
     <section className="relative h-screen w-full flex items-center justify-center overflow-hidden bg-black">
       
-      {/* Full Screen Video Background - NO OVERLAYS */}
+      {/* Full Screen Video Background */}
       <div className="absolute inset-0 z-0">
         <video
           autoPlay
@@ -16,8 +16,10 @@ export function Hero() {
           playsInline
           className="w-full h-full object-cover"
         >
-          <source src="/hero-video.mp4.mp4" type="video/mp4" />
+          <source src="/homepagehero.mp4.mp4" type="video/mp4" />
         </video>
+        {/* Subtle dark gradient at the top specifically to make the Navbar logo/text readable */}
+        <div className="absolute top-0 inset-x-0 h-40 bg-gradient-to-b from-black/80 to-transparent pointer-events-none" />
       </div>
 
       {/* Centered Content */}
@@ -28,7 +30,7 @@ export function Hero() {
           transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1], delay: 0.2 }}
         >
           <span className="inline-block py-1.5 px-4 rounded-full border border-white/30 text-white text-[0.7rem] font-bold tracking-widest uppercase mb-6 bg-black/20 backdrop-blur-md">
-            Premium Quality Exports
+            Garuda Global Exports
           </span>
           
           <h1 className="text-5xl md:text-7xl lg:text-[6rem] font-heading font-bold tracking-tight mb-8 leading-[1.1] text-white drop-shadow-2xl">

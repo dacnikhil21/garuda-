@@ -55,34 +55,72 @@ export function WhyChooseUs() {
           </motion.div>
 
           {/* Visual Side */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 1 }}
-            className="w-full lg:w-1/2"
-          >
-            <div className="relative aspect-square md:aspect-video lg:aspect-square w-full max-w-[500px] mx-auto rounded-[2rem] overflow-hidden border-4 border-white/10 bg-white/5 p-8 flex items-center justify-center shadow-2xl">
-              <div className="absolute inset-0 bg-gradient-to-tr from-accent/20 to-transparent opacity-50" />
-              
-              {/* Abstract decorative rings to simulate a globe/network */}
+          <div className="w-full lg:w-1/2 flex flex-col items-center justify-center pt-8 lg:pt-0">
+            <motion.div
+              initial={{ opacity: 0, scale: 0.97, y: 20 }}
+              whileInView={{ opacity: 1, scale: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 1, type: "spring", stiffness: 100, damping: 30 }}
+              whileHover="hover"
+              className="relative w-full max-w-[600px] mx-auto group cursor-default"
+            >
+              {/* Ambient Glow / Premium Shadow */}
               <motion.div 
-                animate={{ rotate: 360 }}
-                transition={{ duration: 40, repeat: Infinity, ease: "linear" }}
-                className="absolute w-[150%] h-[150%] border-[2px] border-dashed border-white/20 rounded-full"
+                variants={{
+                  hover: { opacity: 0.8, scale: 1.05 }
+                }}
+                className="absolute -inset-4 bg-accent/20 blur-3xl rounded-[3rem] opacity-40 transition-opacity duration-500 pointer-events-none"
+                style={{ zIndex: -1 }}
               />
+
+              {/* Video Container */}
               <motion.div 
-                animate={{ rotate: -360 }}
-                transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
-                className="absolute w-[100%] h-[100%] border-[1px] border-accent/40 rounded-full"
-              />
-              
-              {/* Center Logo/Icon */}
-              <div className="relative w-28 h-28 rounded-full bg-white shadow-xl flex items-center justify-center">
-                <span className="text-5xl text-primary font-heading font-black tracking-tighter">GGE</span>
-              </div>
-            </div>
-          </motion.div>
+                variants={{
+                  hover: { scale: 1.02 }
+                }}
+                transition={{ type: "spring", stiffness: 400, damping: 30 }}
+                className="relative aspect-[4/3] sm:aspect-video w-full rounded-[24px] overflow-hidden bg-white/5 backdrop-blur-xl shadow-2xl p-px"
+              >
+                {/* Thin metallic gold border mask */}
+                <div className="absolute inset-0 rounded-[24px] bg-gradient-to-br from-accent/60 via-accent/10 to-accent/40" />
+                
+                {/* Inner container to clip video and maintain border width */}
+                <div className="relative w-full h-full rounded-[23px] overflow-hidden bg-[#0A1628] z-10">
+                  <motion.video
+                    variants={{
+                      hover: { scale: 1.05 }
+                    }}
+                    transition={{ duration: 0.8, ease: "easeOut" }}
+                    autoPlay
+                    muted
+                    loop
+                    playsInline
+                    className="w-full h-full object-cover"
+                  >
+                    <source src="/garudastory.mp4" type="video/mp4" />
+                    Your browser does not support the video tag.
+                  </motion.video>
+                </div>
+              </motion.div>
+
+              {/* Live Badge Below Video */}
+              <motion.div 
+                variants={{
+                  hover: { y: -2 }
+                }}
+                className="mt-6 flex items-center justify-center gap-3"
+              >
+                <div className="relative flex items-center justify-center w-2 h-2">
+                  <span className="absolute inline-flex h-full w-full rounded-full bg-accent opacity-75 animate-ping"></span>
+                  <span className="relative inline-flex rounded-full h-2 w-2 bg-accent"></span>
+                </div>
+                <span className="text-xs font-semibold tracking-widest text-white/80 uppercase">
+                  Live Export Story
+                </span>
+              </motion.div>
+
+            </motion.div>
+          </div>
 
         </div>
       </div>

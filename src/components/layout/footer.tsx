@@ -36,7 +36,7 @@ export function Footer() {
           <div>
             <h4 className="font-heading text-xl font-semibold mb-6">Our Products</h4>
             <ul className="space-y-4">
-              {["Premium Rice", "Fresh Vegetables", "Indian Spices", "Fresh Fruits", "Premium Makhana"].map((product) => (
+              {["Rice", "Vegetables", "Spices", "Fruits", "Makhana"].map((product) => (
                 <li key={product}>
                   <Link href="#" className="text-white/70 hover:text-accent transition-colors">
                     {product}
@@ -50,16 +50,21 @@ export function Footer() {
           <div>
             <h4 className="font-heading text-xl font-semibold mb-6">Contact Us</h4>
             <ul className="space-y-4 text-white/70">
-              <li>123 Export Hub, Business District</li>
-              <li>Mumbai, Maharashtra, India 400001</li>
+              <li>Garuda Global Exports</li>
+              <li>Since 2 years</li>
               <li className="pt-2">
-                <a href="mailto:info@garudaexports.com" className="hover:text-accent transition-colors">
-                  info@garudaexports.com
+                <a href="mailto:Garudaaglobalexports@gmail.com" className="hover:text-accent transition-colors block">
+                  Garudaaglobalexports@gmail.com
                 </a>
               </li>
               <li>
-                <a href="tel:+919876543210" className="hover:text-accent transition-colors">
-                  +91 98765 43210
+                <a href="tel:+918143944888" className="hover:text-accent transition-colors block">
+                  +91 8143944888
+                </a>
+              </li>
+              <li>
+                <a href="https://wa.me/918143944888" target="_blank" rel="noopener noreferrer" className="hover:text-[#25D366] transition-colors">
+                  WhatsApp: +91 8143944888
                 </a>
               </li>
             </ul>

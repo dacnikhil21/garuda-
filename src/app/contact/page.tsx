@@ -76,9 +76,11 @@ export default function ContactPage() {
                 <div className="w-12 h-12 rounded-full bg-accent/20 flex items-center justify-center mb-6">
                   <Phone className="w-5 h-5 text-accent" />
                 </div>
-                <h3 className="text-sm font-bold tracking-[0.1em] uppercase text-slate-400 mb-2">Call Us Directly</h3>
-                <p className="text-xl font-heading font-bold text-primary">+91 8143944888</p>
-                <p className="text-sm text-slate-500 mt-2">Available 24/7 for urgent inquiries.</p>
+                <h3 className="text-sm font-bold tracking-[0.1em] uppercase text-slate-400 mb-2">Call / WhatsApp</h3>
+                <a href="https://wa.me/918143944888" target="_blank" rel="noopener noreferrer" className="text-xl font-heading font-bold text-[#25D366] hover:text-[#20bd5a] transition-colors block">
+                  +91 8143944888
+                </a>
+                <p className="text-sm text-slate-500 mt-2">Available 24/7. Click to chat on WhatsApp.</p>
               </motion.div>
 
               <motion.div 
@@ -92,7 +94,7 @@ export default function ContactPage() {
                   <Mail className="w-5 h-5 text-accent" />
                 </div>
                 <h3 className="text-sm font-bold tracking-[0.1em] uppercase text-slate-400 mb-2">Email Us</h3>
-                <p className="text-xl font-heading font-bold text-primary">sales@garuda.com</p>
+                <p className="text-sm font-heading font-bold text-primary">Garudaaglobalexports@gmail.com</p>
                 <p className="text-sm text-slate-500 mt-2">We reply within 2 hours.</p>
               </motion.div>
 
