@@ -16,7 +16,7 @@ export function Hero() {
           playsInline
           className="w-full h-full object-cover"
         >
-          <source src="/homepagehero.mp4.mp4" type="video/mp4" />
+          <source src="/homepagehero.mp4" type="video/mp4" />
         </video>
         {/* Subtle dark gradient at the top specifically to make the Navbar logo/text readable */}
         <div className="absolute top-0 inset-x-0 h-40 bg-gradient-to-b from-black/80 to-transparent pointer-events-none" />

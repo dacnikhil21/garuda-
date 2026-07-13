@@ -7,17 +7,9 @@ export function SplashScreen() {
   const [show, setShow] = useState(true);
 
   useEffect(() => {
-    // Check if splash has already played this session
-    const hasPlayed = sessionStorage.getItem("splashPlayed");
-    if (hasPlayed) {
-      setShow(false);
-      return;
-    }
-
     // Safety timeout: 11 seconds (accommodates your 10s video + buffer)
     const timer = setTimeout(() => {
       setShow(false);
-      sessionStorage.setItem("splashPlayed", "true");
     }, 11000);
 
     return () => clearTimeout(timer);
@@ -25,7 +17,6 @@ export function SplashScreen() {
 
   const handleSkip = () => {
     setShow(false);
-    sessionStorage.setItem("splashPlayed", "true");
   };
 
   return (

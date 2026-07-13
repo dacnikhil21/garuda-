@@ -84,7 +84,7 @@ export default function ProductsCatalogue() {
             playsInline
             className="absolute inset-0 w-full h-full object-cover"
           >
-            <source src="/producthero.mp4.mp4" type="video/mp4" />
+            <source src="/producthero.mp4" type="video/mp4" />
           </video>
           {/* Subtle overlay just for text readability, removing heavy color effects */}
           <div className="absolute inset-0 bg-black/30" />
