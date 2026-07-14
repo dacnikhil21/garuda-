@@ -1,4 +1,4 @@
-import { allProducts } from "../page";
+import { allProducts } from "@/data/products";
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import { ArrowLeft, MessageCircle, ShieldCheck, Truck, PackageCheck, Leaf } from "lucide-react";
