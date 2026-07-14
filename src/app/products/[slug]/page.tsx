@@ -22,7 +22,7 @@ export default async function ProductDetailPage({ params }: { params: Promise<{ 
     <div className="pt-32 pb-24 min-h-screen bg-[#FAF9F6] font-sans selection:bg-accent/30 selection:text-primary">
       <div className="container mx-auto px-6">
         
-        <Link href="/products#catalog" className="inline-flex items-center gap-2 text-sm font-bold tracking-widest uppercase text-gray-500 hover:text-accent transition-colors mb-12">
+        <Link href="/products" className="inline-flex items-center gap-2 text-sm font-bold tracking-widest uppercase text-gray-500 hover:text-accent transition-colors mb-12">
           <ArrowLeft className="w-4 h-4" /> Back to Catalog
         </Link>
 
