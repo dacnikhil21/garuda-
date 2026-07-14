@@ -19,41 +19,41 @@ import {
 import { cn } from "@/lib/utils";
 
 const categories = [
-  { name: "All", image: "https://image.pollinations.ai/prompt/assorted%20agricultural%20products%20spices%20fruits%20vegetables%20rice%20india?width=800&height=800&nologo=true" },
-  { name: "Rice", image: "https://image.pollinations.ai/prompt/various%20types%20of%20rice%20grains%20in%20bowls?width=800&height=800&nologo=true" },
-  { name: "Vegetables", image: "https://image.pollinations.ai/prompt/fresh%20farm%20vegetables%20assortment?width=800&height=800&nologo=true" },
-  { name: "Fruits", image: "https://image.pollinations.ai/prompt/fresh%20tropical%20fruits%20mangoes%20bananas?width=800&height=800&nologo=true" },
-  { name: "Spices", image: "https://image.pollinations.ai/prompt/indian%20spices%20assortment%20colorful?width=800&height=800&nologo=true" },
-  { name: "Makhana", image: "https://image.pollinations.ai/prompt/roasted%20makhana%20fox%20nuts?width=800&height=800&nologo=true" }
+  { name: "All", image: "/images/categories/all.jpg" },
+  { name: "Rice", image: "/images/categories/rice.jpg" },
+  { name: "Vegetables", image: "/images/categories/vegetables.jpg" },
+  { name: "Fruits", image: "/images/categories/fruits.jpg" },
+  { name: "Spices", image: "/images/categories/spices.jpg" },
+  { name: "Makhana", image: "/images/categories/makhana.jpg" }
 ];
 
 export const allProducts = [
   // Rice
-  { name: "Raw Rice", category: "Rice", image: "https://image.pollinations.ai/prompt/macro%20photography%20of%20raw%20white%20rice%20grains%20agricultural?width=800&height=800&nologo=true" },
-  { name: "Basmathi Rice", category: "Rice", image: "https://image.pollinations.ai/prompt/long%20grain%20basmati%20rice%20in%20a%20wooden%20bowl?width=800&height=800&nologo=true" },
-  { name: "IR 64 Rice", category: "Rice", image: "https://image.pollinations.ai/prompt/white%20rice%20grains%20pile%20export%20quality?width=800&height=800&nologo=true" },
-  { name: "Sona Masuri", category: "Rice", image: "https://image.pollinations.ai/prompt/medium%20grain%20sona%20masoori%20rice%20uncooked?width=800&height=800&nologo=true" },
-  { name: "Broken Rice", category: "Rice", image: "https://image.pollinations.ai/prompt/broken%20white%20rice%20grains%20texture?width=800&height=800&nologo=true" },
+  { name: "Raw Rice", category: "Rice", image: "/images/products/raw-rice.jpg" },
+  { name: "Basmathi Rice", category: "Rice", image: "/images/products/basmathi-rice.jpg" },
+  { name: "IR 64 Rice", category: "Rice", image: "/images/products/ir-64-rice.jpg" },
+  { name: "Sona Masuri", category: "Rice", image: "/images/products/sona-masuri.jpg" },
+  { name: "Broken Rice", category: "Rice", image: "/images/products/broken-rice.jpg" },
   
   // Vegetables
-  { name: "Onions", category: "Vegetables", image: "https://image.pollinations.ai/prompt/fresh%20red%20onions%20agricultural%20export?width=800&height=800&nologo=true" },
-  { name: "Mirchi G4", category: "Vegetables", image: "https://image.pollinations.ai/prompt/spicy%20dry%20red%20chilli%20peppers%20pile?width=800&height=800&nologo=true" },
+  { name: "Onions", category: "Vegetables", image: "/images/products/onions.jpg" },
+  { name: "Mirchi G4", category: "Vegetables", image: "/images/products/mirchi-g4.jpg" },
   
   // Fruits
-  { name: "Banana", category: "Fruits", image: "https://image.pollinations.ai/prompt/fresh%20yellow%20bananas%20bunch?width=800&height=800&nologo=true" },
-  { name: "Pomegranate", category: "Fruits", image: "https://image.pollinations.ai/prompt/fresh%20red%20pomegranate%20cut%20open%20with%20seeds?width=800&height=800&nologo=true" },
-  { name: "Alphonso Mango", category: "Fruits", image: "https://image.pollinations.ai/prompt/fresh%20alphonso%20mango%20yellow%20ripe?width=800&height=800&nologo=true" },
-  { name: "Banganapalli Mango", category: "Fruits", image: "https://image.pollinations.ai/prompt/large%20yellow%20banganapalli%20mango?width=800&height=800&nologo=true" },
+  { name: "Banana", category: "Fruits", image: "/images/products/banana.jpg" },
+  { name: "Pomegranate", category: "Fruits", image: "/images/products/pomegranate.jpg" },
+  { name: "Alphonso Mango", category: "Fruits", image: "/images/products/alphonso-mango.jpg" },
+  { name: "Banganapalli Mango", category: "Fruits", image: "/images/products/banganapalli-mango.jpg" },
   
   // Spices
-  { name: "Cardamom", category: "Spices", image: "https://image.pollinations.ai/prompt/green%20cardamom%20pods%20spices?width=800&height=800&nologo=true" },
-  { name: "Cloves", category: "Spices", image: "https://image.pollinations.ai/prompt/dried%20cloves%20spices%20macro?width=800&height=800&nologo=true" },
-  { name: "Garlic", category: "Spices", image: "https://image.pollinations.ai/prompt/fresh%20white%20garlic%20bulbs?width=800&height=800&nologo=true" },
-  { name: "Sesame Seeds", category: "Spices", image: "https://image.pollinations.ai/prompt/white%20sesame%20seeds%20pile%20macro?width=800&height=800&nologo=true" },
-  { name: "Red Chilli", category: "Spices", image: "https://image.pollinations.ai/prompt/vibrant%20dry%20red%20chilli%20peppers?width=800&height=800&nologo=true" },
+  { name: "Cardamom", category: "Spices", image: "/images/products/cardamom.jpg" },
+  { name: "Cloves", category: "Spices", image: "/images/products/cloves.jpg" },
+  { name: "Garlic", category: "Spices", image: "/images/products/garlic.jpg" },
+  { name: "Sesame Seeds", category: "Spices", image: "/images/products/sesame-seeds.jpg" },
+  { name: "Red Chilli", category: "Spices", image: "/images/products/red-chilli.jpg" },
   
   // Makhana
-  { name: "Premium Makhana", category: "Makhana", image: "https://image.pollinations.ai/prompt/white%20makhana%20fox%20nuts%20in%20a%20bowl?width=800&height=800&nologo=true" },
+  { name: "Premium Makhana", category: "Makhana", image: "/images/products/premium-makhana.jpg" },
 ];
 
 export default function ProductsCatalogue() {

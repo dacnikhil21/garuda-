@@ -120,7 +120,7 @@ export default function ContactPage() {
               initial={{ opacity: 0, x: 30 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ delay: 0.4 }}
-              className="w-full lg:w-2/3 bg-white p-10 md:p-12 rounded-[2rem] border border-gray-100 shadow-xl relative"
+              className="w-full lg:w-2/3 bg-white p-6 sm:p-10 md:p-12 rounded-[2rem] border border-gray-100 shadow-xl relative"
             >
               <h2 className="text-3xl font-heading font-bold text-primary mb-2">Request a Quote</h2>
               <p className="text-slate-500 mb-8">Fill out the form below and our export specialists will get back to you immediately.</p>

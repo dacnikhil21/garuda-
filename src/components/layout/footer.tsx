@@ -22,9 +22,9 @@ export function Footer() {
           <div>
             <h4 className="font-heading text-xl font-semibold mb-6">Quick Links</h4>
             <ul className="space-y-4">
-              {["Home", "About Us", "Products", "Quality Standards", "Global Exports", "Contact"].map((link) => (
+              {["Home", "About Us", "Products", "Contact"].map((link) => (
                 <li key={link}>
-                  <Link href="#" className="text-white/70 hover:text-accent transition-colors">
+                  <Link href={link === "Home" ? "/" : link === "About Us" ? "/about" : link === "Products" ? "/products" : "/contact"} className="text-white/70 hover:text-accent transition-colors">
                     {link}
                   </Link>
                 </li>

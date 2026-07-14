@@ -5,14 +5,14 @@ import Link from "next/link";
 import { ExternalLink, MessageCircle } from "lucide-react";
 
 const products = [
-  { name: "Basmathi Rice", category: "Rice", description: "Premium aromatic Basmathi rice known for its extra-long slender grains.", image: "https://image.pollinations.ai/prompt/long%20grain%20basmati%20rice%20in%20a%20wooden%20bowl?width=800&height=800&nologo=true" },
-  { name: "Sona Masuri", category: "Rice", description: "Lightweight and aromatic medium-grain rice perfect for daily consumption.", image: "https://image.pollinations.ai/prompt/medium%20grain%20sona%20masoori%20rice%20uncooked?width=800&height=800&nologo=true" },
-  { name: "Mirchi G4", category: "Vegetables", description: "Highly sought-after G4 green chillies known for their intense spice.", image: "https://image.pollinations.ai/prompt/spicy%20dry%20red%20chilli%20peppers%20pile?width=800&height=800&nologo=true" },
-  { name: "Onions", category: "Vegetables", description: "Export-quality pungent and crisp onions directly from Indian farms.", image: "https://image.pollinations.ai/prompt/fresh%20red%20onions%20agricultural%20export?width=800&height=800&nologo=true" },
-  { name: "Alphonso Mango", category: "Fruits", description: "The 'King of Mangos', featuring unmatched sweetness and creamy texture.", image: "https://image.pollinations.ai/prompt/fresh%20alphonso%20mango%20yellow%20ripe?width=800&height=800&nologo=true" },
-  { name: "Pomegranate", category: "Fruits", description: "Rich, ruby-red pomegranates packed with flavor and antioxidants.", image: "https://image.pollinations.ai/prompt/fresh%20red%20pomegranate%20cut%20open%20with%20seeds?width=800&height=800&nologo=true" },
-  { name: "Cardamom", category: "Spices", description: "Premium green cardamom pods with intense aroma and complex flavor.", image: "https://image.pollinations.ai/prompt/green%20cardamom%20pods%20spices?width=800&height=800&nologo=true" },
-  { name: "Premium Makhana", category: "Makhana", description: "Finest quality fox nuts, a perfect healthy snack.", image: "https://image.pollinations.ai/prompt/white%20makhana%20fox%20nuts%20in%20a%20bowl?width=800&height=800&nologo=true" }
+  { name: "Basmathi Rice", category: "Rice", description: "Premium aromatic Basmathi rice known for its extra-long slender grains.", image: "/images/products/basmathi-rice.jpg" },
+  { name: "Sona Masuri", category: "Rice", description: "Lightweight and aromatic medium-grain rice perfect for daily consumption.", image: "/images/products/sona-masuri.jpg" },
+  { name: "Mirchi G4", category: "Vegetables", description: "Highly sought-after G4 green chillies known for their intense spice.", image: "/images/products/mirchi-g4.jpg" },
+  { name: "Onions", category: "Vegetables", description: "Export-quality pungent and crisp onions directly from Indian farms.", image: "/images/products/onions.jpg" },
+  { name: "Alphonso Mango", category: "Fruits", description: "The 'King of Mangos', featuring unmatched sweetness and creamy texture.", image: "/images/products/alphonso-mango.jpg" },
+  { name: "Pomegranate", category: "Fruits", description: "Rich, ruby-red pomegranates packed with flavor and antioxidants.", image: "/images/products/pomegranate.jpg" },
+  { name: "Cardamom", category: "Spices", description: "Premium green cardamom pods with intense aroma and complex flavor.", image: "/images/products/cardamom.jpg" },
+  { name: "Premium Makhana", category: "Makhana", description: "Finest quality fox nuts, a perfect healthy snack.", image: "/images/products/premium-makhana.jpg" }
 ];
 
 export function FeaturedProducts() {

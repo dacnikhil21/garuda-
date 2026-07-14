@@ -36,7 +36,7 @@ export function AboutPreview() {
               At Garuda Global Exports, we bridge the gap between Indian farmers and the international market. Sourcing the finest agricultural produce, we ensure that every grain of rice and every spice tells a story of quality, authenticity, and trust.
             </p>
             
-            <div className="flex gap-12 mb-10">
+            <div className="flex flex-row flex-wrap gap-6 sm:gap-12 mb-10">
               <div>
                 <p className="text-4xl font-heading font-bold text-primary mb-2">15+</p>
                 <p className="text-sm text-muted-foreground uppercase tracking-wider">Years Experience</p>

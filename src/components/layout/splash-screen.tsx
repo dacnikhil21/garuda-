@@ -29,17 +29,21 @@ export function SplashScreen() {
           transition={{ duration: 1, ease: "easeInOut" }}
           className="fixed inset-0 z-[100] bg-black flex flex-col items-center justify-center overflow-hidden"
         >
-          
-          {/* Video element - plays full 10 seconds then hides */}
-          <video
-            autoPlay
-            muted
-            playsInline
-            className="w-full h-full object-cover filter contrast-[1.15] saturate-[1.1] brightness-[1.05]"
-            onEnded={handleSkip}
-          >
-            <source src="/intro.mp4" type="video/mp4" />
-          </video>
+          <div className="relative w-full aspect-video md:h-full md:w-full md:aspect-auto">
+            <video
+              autoPlay
+              muted
+              playsInline
+              className="w-full h-full object-cover filter contrast-[1.15] saturate-[1.1] brightness-[1.05]"
+              onEnded={handleSkip}
+            >
+              <source src="/intro.mp4" type="video/mp4" />
+            </video>
+
+            {/* Vignette overlays - visible on mobile/portrait to blend video edges */}
+            <div className="absolute top-0 inset-x-0 h-16 bg-gradient-to-b from-black to-transparent pointer-events-none md:hidden" />
+            <div className="absolute bottom-0 inset-x-0 h-16 bg-gradient-to-t from-black to-transparent pointer-events-none md:hidden" />
+          </div>
 
           {/* Premium "Skip Intro" Button */}
           <button 

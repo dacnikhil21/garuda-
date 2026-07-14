@@ -57,7 +57,7 @@ export default function ProductDetailPage({ params }: { params: { slug: string }
               </span>
             </div>
 
-            <h1 className="text-5xl lg:text-7xl font-heading font-bold text-[#0B1F3A] mb-8 leading-tight">
+            <h1 className="text-3xl sm:text-5xl lg:text-7xl font-heading font-bold text-[#0B1F3A] mb-8 leading-tight">
               {product.name}
             </h1>
 
