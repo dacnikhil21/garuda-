@@ -3,9 +3,10 @@ import { notFound } from "next/navigation";
 import Link from "next/link";
 import { ArrowLeft, MessageCircle, ShieldCheck, Truck, PackageCheck, Leaf } from "lucide-react";
 
-export default function ProductDetailPage({ params }: { params: { slug: string } }) {
+export default async function ProductDetailPage({ params }: { params: Promise<{ slug: string }> }) {
+  const resolvedParams = await params;
   const product = allProducts.find(
-    (p) => p.name.toLowerCase().replace(/\s+/g, '-') === params.slug
+    (p) => p.name.toLowerCase().replace(/\s+/g, '-') === resolvedParams.slug
   );
 
   if (!product) {
@@ -62,7 +63,7 @@ export default function ProductDetailPage({ params }: { params: { slug: string }
             </h1>
 
             <p className="text-xl text-gray-600 font-light leading-relaxed mb-12">
-              Sourced directly from the finest farms in India, our {product.name} represents the pinnacle of agricultural quality. We ensure stringent quality checks, careful processing, and international standard packaging to deliver excellence globally.
+              {product.description || `Sourced directly from the finest farms in India, our ${product.name} represents the pinnacle of agricultural quality. We ensure stringent quality checks, careful processing, and international standard packaging to deliver excellence globally.`}
             </p>
 
             <div className="grid grid-cols-2 gap-8 mb-12">

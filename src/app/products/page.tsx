@@ -27,34 +27,7 @@ const categories = [
   { name: "Makhana", image: "/images/categories/makhana.jpg" }
 ];
 
-export const allProducts = [
-  // Rice
-  { name: "Raw Rice", category: "Rice", image: "/images/products/raw-rice.jpg" },
-  { name: "Basmathi Rice", category: "Rice", image: "/images/products/basmathi-rice.jpg" },
-  { name: "IR 64 Rice", category: "Rice", image: "/images/products/ir-64-rice.jpg" },
-  { name: "Sona Masuri", category: "Rice", image: "/images/products/sona-masuri.jpg" },
-  { name: "Broken Rice", category: "Rice", image: "/images/products/broken-rice.jpg" },
-  
-  // Vegetables
-  { name: "Onions", category: "Vegetables", image: "/images/products/onions.jpg" },
-  { name: "Mirchi G4", category: "Vegetables", image: "/images/products/mirchi-g4.jpg" },
-  
-  // Fruits
-  { name: "Banana", category: "Fruits", image: "/images/products/banana.jpg" },
-  { name: "Pomegranate", category: "Fruits", image: "/images/products/pomegranate.jpg" },
-  { name: "Alphonso Mango", category: "Fruits", image: "/images/products/alphonso-mango.jpg" },
-  { name: "Banganapalli Mango", category: "Fruits", image: "/images/products/banganapalli-mango.jpg" },
-  
-  // Spices
-  { name: "Cardamom", category: "Spices", image: "/images/products/cardamom.jpg" },
-  { name: "Cloves", category: "Spices", image: "/images/products/cloves.jpg" },
-  { name: "Garlic", category: "Spices", image: "/images/products/garlic.jpg" },
-  { name: "Sesame Seeds", category: "Spices", image: "/images/products/sesame-seeds.jpg" },
-  { name: "Red Chilli", category: "Spices", image: "/images/products/red-chilli.jpg" },
-  
-  // Makhana
-  { name: "Premium Makhana", category: "Makhana", image: "/images/products/premium-makhana.jpg" },
-];
+import { allProducts } from "@/data/products";
 
 export default function ProductsCatalogue() {
   const { scrollY } = useScroll();
