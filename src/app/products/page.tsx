@@ -4,6 +4,7 @@ import { useState } from "react";
 import { motion, useScroll, useTransform, AnimatePresence } from "framer-motion";
 import Link from "next/link";
 import Image from "next/image";
+import { ProductCard } from "@/components/ui/product-card";
 import { 
   ArrowRight, 
   Leaf, 
@@ -201,59 +202,10 @@ export default function ProductsCatalogue() {
 
           <motion.div layout className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 lg:gap-8 px-4 sm:px-0">
             <AnimatePresence>
-              {filteredProducts.map((product) => (
-                <motion.div
-                  layout
-                  initial={{ opacity: 0, scale: 0.9 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  exit={{ opacity: 0, scale: 0.9 }}
-                  transition={{ duration: 0.3 }}
-                  key={product.name}
-                  className="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl border border-gray-100 transition-all duration-300 flex flex-col h-auto sm:h-[420px]"
-                >
-                  {/* Image Area */}
-                  <div className="relative h-48 sm:h-56 overflow-hidden bg-gray-50 p-2">
-                    <div className="w-full h-full rounded-xl overflow-hidden relative">
-                      <Image 
-                        src={product.image} 
-                        alt={product.name} 
-                        fill
-                        className="object-cover transform hover:scale-110 transition-transform duration-700 ease-out"
-                      />
-                    </div>
-                  </div>
-
-                  {/* Content Area */}
-                  <div className="p-4 sm:p-6 flex flex-col flex-grow">
-                    <div className="flex items-center gap-2 mb-2">
-                      <span className="text-[0.6rem] sm:text-[0.65rem] font-bold tracking-widest uppercase text-accent bg-accent/10 px-2 py-1 rounded">
-                        {product.category}
-                      </span>
-                    </div>
-                    <h3 className="text-lg sm:text-xl font-heading font-bold text-[#0B1F3A] mb-4 sm:mb-auto">
-                      {product.name}
-                    </h3>
-
-                    {/* Action Buttons */}
-                    <div className="flex flex-row gap-2 mt-auto">
-                      <Link 
-                        href={`/products/${product.name.toLowerCase().replace(/\s+/g, '-')}`}
-                        className="flex-1 py-2 rounded-full border border-gray-200 text-gray-600 text-[10px] sm:text-[10px] font-bold tracking-wider uppercase flex items-center justify-center gap-1 sm:gap-2 hover:bg-gray-50 hover:border-gray-300 transition-colors"
-                      >
-                        View Details <ExternalLink className="w-3 h-3" />
-                      </Link>
-                      
-                      <a 
-                        href={getWhatsAppLink(product.name)}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="flex-1 py-2 rounded-full bg-[#0B1F3A] text-white border border-[#0B1F3A] text-[9px] sm:text-[10px] font-bold tracking-widest uppercase hover:bg-[#1a365d] transition-colors shadow-sm flex items-center justify-center gap-1 sm:gap-2"
-                      >
-                        <MessageCircle className="w-3 h-3 text-[#25D366]" /> WhatsApp
-                      </a>
-                    </div>
-                  </div>
-                </motion.div>
+              {filteredProducts.map((product, index) => (
+                <div key={product.name} className="h-full">
+                  <ProductCard product={product} index={index} />
+                </div>
               ))}
             </AnimatePresence>
           </motion.div>
