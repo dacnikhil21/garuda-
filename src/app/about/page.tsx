@@ -55,13 +55,13 @@ export default function AboutPage() {
               initial={{ opacity: 0, x: -30 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              className="bg-white p-12 rounded-[2rem] border border-gray-100 shadow-[0_8px_30px_rgb(0,0,0,0.04)]"
+              className="bg-white p-6 md:p-10 rounded-2xl md:rounded-[2rem] border border-gray-100 shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all duration-300 group"
             >
-              <div className="w-16 h-16 rounded-full bg-primary/5 flex items-center justify-center mb-8">
-                <Target className="w-8 h-8 text-accent" />
+              <div className="w-12 h-12 md:w-16 md:h-16 rounded-full bg-primary/5 flex items-center justify-center mb-6 md:mb-8 group-hover:bg-primary transition-colors duration-300">
+                <Target className="w-6 h-6 md:w-8 md:h-8 text-accent group-hover:text-white transition-colors duration-300" />
               </div>
-              <h2 className="text-3xl font-heading font-bold text-primary mb-6">Our Mission</h2>
-              <p className="text-slate-600 leading-relaxed text-lg">
+              <h2 className="text-2xl md:text-3xl font-heading font-bold text-primary mb-4 md:mb-6">Our Mission</h2>
+              <p className="text-slate-600 leading-relaxed text-sm md:text-lg">
                 To bridge the gap between Indian farmers and the global market by providing a transparent, ethical, and highly efficient export pipeline. We strive to deliver uncompromising quality while ensuring fair trade practices at the origin.
               </p>
             </motion.div>
@@ -70,13 +70,13 @@ export default function AboutPage() {
               initial={{ opacity: 0, x: 30 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              className="bg-white p-12 rounded-[2rem] border border-gray-100 shadow-[0_8px_30px_rgb(0,0,0,0.04)]"
+              className="bg-white p-6 md:p-10 rounded-2xl md:rounded-[2rem] border border-gray-100 shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all duration-300 group"
             >
-              <div className="w-16 h-16 rounded-full bg-primary/5 flex items-center justify-center mb-8">
-                <Globe2 className="w-8 h-8 text-accent" />
+              <div className="w-12 h-12 md:w-16 md:h-16 rounded-full bg-primary/5 flex items-center justify-center mb-6 md:mb-8 group-hover:bg-primary transition-colors duration-300">
+                <Globe2 className="w-6 h-6 md:w-8 md:h-8 text-accent group-hover:text-white transition-colors duration-300" />
               </div>
-              <h2 className="text-3xl font-heading font-bold text-primary mb-6">Our Vision</h2>
-              <p className="text-slate-600 leading-relaxed text-lg">
+              <h2 className="text-2xl md:text-3xl font-heading font-bold text-primary mb-4 md:mb-6">Our Vision</h2>
+              <p className="text-slate-600 leading-relaxed text-sm md:text-lg">
                 To be recognized globally as the most trusted and reliable partner for Indian agricultural exports, setting the gold standard for quality control, logistics, and customer satisfaction in the B2B commodity sector.
               </p>
             </motion.div>
@@ -93,27 +93,58 @@ export default function AboutPage() {
             <p className="text-slate-500 max-w-2xl mx-auto text-lg">The principles that drive our daily operations and long-term strategy.</p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {[
-              { title: "Uncompromising Quality", desc: "Rigorous testing and grading to meet international standards.", icon: ShieldCheck },
-              { title: "Ethical Sourcing", desc: "Direct farm relationships ensuring fair compensation and sustainable practices.", icon: Leaf },
-              { title: "Global Reliability", desc: "Timely delivery through an advanced logistical network spanning 40+ countries.", icon: Globe2 },
-            ].map((value, index) => (
-              <motion.div 
-                key={value.title}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.15 }}
-                className="text-center p-8 flex flex-col items-center"
-              >
-                <div className="w-20 h-20 rounded-full bg-slate-50 border-2 border-accent/20 flex items-center justify-center mb-6 shadow-sm">
-                  <value.icon className="w-10 h-10 text-primary" />
-                </div>
-                <h3 className="text-xl font-bold font-heading text-primary mb-3">{value.title}</h3>
-                <p className="text-slate-500 leading-relaxed">{value.desc}</p>
-              </motion.div>
-            ))}
+          <div className="overflow-hidden relative">
+            
+            {/* Desktop Grid */}
+            <div className="hidden md:grid md:grid-cols-3 md:gap-8 pb-8 md:pb-0">
+              {[
+                { title: "Uncompromising Quality", desc: "Rigorous testing and grading to meet international standards.", icon: ShieldCheck },
+                { title: "Ethical Sourcing", desc: "Direct farm relationships ensuring fair compensation and sustainable practices.", icon: Leaf },
+                { title: "Global Reliability", desc: "Timely delivery through an advanced logistical network spanning 40+ countries.", icon: Globe2 },
+              ].map((value, index) => (
+                <motion.div 
+                  key={value.title}
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: index * 0.15 }}
+                  className="text-center p-4 md:p-8 flex flex-col items-center bg-transparent"
+                >
+                  <div className="w-12 h-12 md:w-20 md:h-20 rounded-full bg-slate-50 border-2 border-accent/20 flex items-center justify-center mb-3 md:mb-6 shadow-sm shrink-0">
+                    <value.icon className="w-6 h-6 md:w-10 md:h-10 text-primary" />
+                  </div>
+                  <h3 className="text-base md:text-xl font-bold font-heading text-primary mb-2 md:mb-3">{value.title}</h3>
+                  <p className="text-xs md:text-base text-slate-500 leading-relaxed">{value.desc}</p>
+                </motion.div>
+              ))}
+            </div>
+
+            {/* Mobile Marquee */}
+            <div className="flex md:hidden relative -mx-6 px-6">
+              <div className="flex gap-4 animate-marquee active:[animation-play-state:paused] w-max">
+                {[
+                  { title: "Uncompromising Quality", desc: "Rigorous testing and grading to meet international standards.", icon: ShieldCheck },
+                  { title: "Ethical Sourcing", desc: "Direct farm relationships ensuring fair compensation and sustainable practices.", icon: Leaf },
+                  { title: "Global Reliability", desc: "Timely delivery through an advanced logistical network spanning 40+ countries.", icon: Globe2 },
+                  // Duplicated for seamless loop
+                  { title: "Uncompromising Quality", desc: "Rigorous testing and grading to meet international standards.", icon: ShieldCheck },
+                  { title: "Ethical Sourcing", desc: "Direct farm relationships ensuring fair compensation and sustainable practices.", icon: Leaf },
+                  { title: "Global Reliability", desc: "Timely delivery through an advanced logistical network spanning 40+ countries.", icon: Globe2 },
+                ].map((value, index) => (
+                  <div 
+                    key={index}
+                    className="w-[250px] shrink-0 text-center p-6 flex flex-col items-center bg-white border border-gray-100 rounded-2xl shadow-sm"
+                  >
+                    <div className="w-12 h-12 rounded-full bg-slate-50 border-2 border-accent/20 flex items-center justify-center mb-4 shadow-sm shrink-0">
+                      <value.icon className="w-6 h-6 text-primary" />
+                    </div>
+                    <h3 className="text-base font-bold font-heading text-primary mb-2">{value.title}</h3>
+                    <p className="text-xs text-slate-500 leading-relaxed">{value.desc}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+            
           </div>
         </div>
       </section>

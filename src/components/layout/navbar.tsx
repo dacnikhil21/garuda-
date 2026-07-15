@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { motion, useScroll, useMotionValueEvent, AnimatePresence } from "framer-motion";
+import Image from "next/image";
 import { cn } from "@/lib/utils";
 import { Phone, Menu, X } from "lucide-react";
 
@@ -58,9 +59,19 @@ export function Navbar() {
           
           {/* Logo */}
           <Link href="/" className="flex items-center gap-4 z-50 group">
-            <div className="w-12 h-12 rounded-full border border-white/30 flex items-center justify-center relative overflow-hidden group-hover:border-accent transition-colors duration-500">
-               <span className="text-white font-heading font-bold text-2xl relative z-10 group-hover:text-accent transition-colors duration-500">G</span>
-               <div className="absolute inset-0 bg-white/5 backdrop-blur-md" />
+            <div className="w-12 h-12 rounded-full flex items-center justify-center relative group-hover:scale-105 transition-transform duration-500">
+               {/* Snake-like Arrow SVG */}
+               <div className="absolute inset-0 text-accent/80 group-hover:text-accent transition-colors duration-500">
+                 <svg viewBox="0 0 100 100" fill="none" stroke="currentColor" strokeWidth="4" className="w-full h-full drop-shadow-md overflow-visible">
+                   <g transform="rotate(-15 50 50)">
+                     {/* Normalizing path length to 100 makes animating it perfectly accurate */}
+                     <path d="M 10 50 A 40 15 0 1 1 90 50 A 40 15 0 1 1 10 50" pathLength="100" strokeDasharray="40 60" strokeLinecap="round">
+                       <animate attributeName="stroke-dashoffset" from="100" to="0" dur="1.5s" repeatCount="indefinite" />
+                     </path>
+                   </g>
+                 </svg>
+               </div>
+               <span className="text-white font-heading font-bold text-sm tracking-widest relative z-10 group-hover:text-accent transition-colors duration-500">GGE</span>
             </div>
             <div className="flex flex-col">
               <span className="font-heading text-xl md:text-2xl font-bold text-white tracking-widest leading-none uppercase drop-shadow-md">
@@ -108,7 +119,7 @@ export function Navbar() {
             className="lg:hidden p-2 text-white relative z-[60]"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
           >
-            {mobileMenuOpen ? <X className="w-8 h-8" /> : <Menu className="w-8 h-8" />}
+            {!mobileMenuOpen && <Menu className="w-8 h-8" />}
           </button>
         </div>
       </header>
@@ -126,7 +137,14 @@ export function Navbar() {
             {/* Background Accent */}
             <div className="absolute top-0 right-0 w-96 h-96 bg-accent/10 rounded-full blur-[100px] pointer-events-none" />
 
-            <nav className="flex flex-col gap-6 relative z-10">
+            <button 
+              className="absolute top-6 right-6 p-2 text-white/80 hover:text-white transition-colors"
+              onClick={() => setMobileMenuOpen(false)}
+            >
+              <X className="w-8 h-8" />
+            </button>
+
+            <nav className="flex flex-col gap-6 relative z-10 mt-10">
               {links.map((link, i) => (
                 <motion.div
                   key={link.name}
@@ -167,7 +185,7 @@ export function Navbar() {
               <Link 
                 href="/contact" 
                 onClick={() => setMobileMenuOpen(false)}
-                className="w-full bg-accent text-white py-4 rounded font-bold tracking-[0.2em] uppercase text-center text-sm shadow-xl"
+                className="w-full bg-accent text-white py-3 md:py-4 rounded font-bold tracking-widest md:tracking-[0.2em] uppercase text-center text-xs md:text-sm shadow-xl"
               >
                 Request a Quote
               </Link>

@@ -5,7 +5,7 @@ import { MagneticButton } from "@/components/ui/magnetic-button";
 
 export function ContactCTA() {
   return (
-    <section className="py-32 relative overflow-hidden bg-secondary">
+    <section className="py-16 md:py-32 relative overflow-hidden bg-secondary">
       <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?q=80&w=2070&auto=format&fit=crop')] bg-cover bg-center bg-fixed opacity-5 mix-blend-multiply" />
       
       <div className="container mx-auto px-6 relative z-10 text-center">
@@ -24,10 +24,10 @@ export function ContactCTA() {
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <MagneticButton className="bg-primary text-white hover:bg-primary/90 px-8 py-6 text-lg">
+            <MagneticButton className="bg-primary text-white hover:bg-primary/90 px-6 md:px-8 py-3 md:py-4 text-sm md:text-base rounded-full">
               Contact Sales
             </MagneticButton>
-            <MagneticButton className="bg-transparent border border-primary text-primary hover:bg-primary/5 px-8 py-6 text-lg">
+            <MagneticButton className="bg-transparent border border-primary text-primary hover:bg-primary/5 px-6 md:px-8 py-3 md:py-4 text-sm md:text-base rounded-full">
               Download Brochure
             </MagneticButton>
           </div>

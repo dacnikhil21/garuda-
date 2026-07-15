@@ -13,7 +13,7 @@ const certs = [
 
 export function QualityCertifications() {
   return (
-    <section className="py-24 bg-primary text-white">
+    <section className="py-12 md:py-24 bg-primary text-white">
       <div className="container mx-auto px-6 text-center">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -35,12 +35,12 @@ export function QualityCertifications() {
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.1, duration: 0.5 }}
-              className="p-6 rounded-2xl bg-white/5 border border-white/10 flex flex-col items-center justify-center hover:bg-white/10 transition-colors cursor-default"
+              className="p-4 md:p-6 rounded-xl md:rounded-2xl bg-white/5 border border-white/10 flex flex-col items-center justify-center hover:bg-white/10 transition-colors cursor-default"
             >
-              <div className="w-16 h-16 rounded-full bg-accent/20 flex items-center justify-center mb-4">
-                <div className="w-8 h-8 rounded-full bg-accent" />
+              <div className="w-10 h-10 md:w-16 md:h-16 rounded-full bg-accent/20 flex items-center justify-center mb-3 md:mb-4">
+                <div className="w-5 h-5 md:w-8 md:h-8 rounded-full bg-accent" />
               </div>
-              <span className="font-medium text-sm text-white/90">{cert}</span>
+              <span className="font-medium text-xs md:text-sm text-white/90 text-center">{cert}</span>
             </motion.div>
           ))}
         </div>

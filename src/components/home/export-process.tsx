@@ -28,7 +28,7 @@ const processes = [
 
 export function ExportProcess() {
   return (
-    <section className="py-32 bg-slate-50 relative overflow-hidden">
+    <section className="py-16 md:py-32 bg-slate-50 relative overflow-hidden">
       <div className="container mx-auto px-6">
         <div className="text-center mb-24 flex flex-col items-center">
           <span className="inline-block py-1 px-3 rounded-full bg-accent/10 text-accent border border-accent/20 text-xs font-bold tracking-[0.2em] uppercase mb-6">

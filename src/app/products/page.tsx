@@ -7,7 +7,8 @@ import Image from "next/image";
 import { 
   ArrowRight, 
   Leaf, 
-  Globe, 
+  Globe,
+  Globe2, 
   PackageCheck, 
   ShieldCheck, 
   Download, 
@@ -71,29 +72,19 @@ export default function ProductsCatalogue() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1, ease: "easeOut" }}
             >
-              <h2 className="text-accent text-sm md:text-base font-bold tracking-[0.3em] uppercase mb-6 flex items-center gap-4">
-                <span className="w-12 h-px bg-accent"></span>
-                International Export Catalogue
-              </h2>
               <h1 className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-heading font-light text-white leading-[1.1] mb-6 md:mb-8 drop-shadow-2xl">
                 Global <br />
                 <span className="font-bold text-accent drop-shadow-[0_0_15px_rgba(212,175,55,0.3)]">Agricultural</span> <br />
                 <span className="italic font-serif">Excellence.</span>
               </h1>
-              <p className="text-lg md:text-xl text-white/90 max-w-xl font-light leading-relaxed mb-12 drop-shadow-md">
+              <p className="text-lg md:text-xl text-white/90 max-w-xl font-light leading-relaxed mb-10 drop-shadow-md">
                 Carefully sourced from India's finest farms and prepared for global export with uncompromising quality standards.
               </p>
               
-              <div className="flex flex-col sm:flex-row items-center gap-6">
-                <Link 
-                  href="#catalog"
-                  className="w-full sm:w-auto px-10 py-5 bg-white text-[#0B1F3A] rounded-full text-sm font-bold tracking-widest uppercase hover:bg-accent hover:text-white transition-all duration-500 shadow-[0_0_40px_rgba(255,255,255,0.2)] hover:shadow-[0_0_40px_rgba(212,175,55,0.4)] text-center"
-                >
+              <div className="flex flex-col sm:flex-row items-center gap-4 pt-2">
+                <Link href="#catalog" className="w-full sm:w-auto px-6 py-2.5 bg-white text-[#0B1F3A] hover:bg-gray-50 rounded-full font-bold tracking-widest uppercase text-xs transition-all duration-300 text-center">
                   Explore Catalog
                 </Link>
-                <button className="w-full sm:w-auto px-10 py-5 bg-transparent border border-white/30 text-white rounded-full text-sm font-bold tracking-widest uppercase flex items-center justify-center gap-3 hover:bg-white/10 transition-all duration-500">
-                  <Download className="w-4 h-4" /> Download Catalogue
-                </button>
               </div>
             </motion.div>
           </div>
@@ -101,12 +92,13 @@ export default function ProductsCatalogue() {
       </section>
 
       {/* 2. QUALITY PROMISE */}
-      <section className="bg-[#0B1F3A] py-16 border-b border-white/5 relative z-20">
-        <div className="container mx-auto px-6">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-12 md:gap-6 divide-x-0 md:divide-x divide-white/10">
+      <section className="bg-[#0B1F3A] py-0 md:py-16 border-b border-white/5 relative z-20">
+        <div className="container mx-auto px-6 relative z-10">
+          {/* Desktop Grid */}
+          <div className="hidden md:grid md:grid-cols-4 md:gap-12 max-w-5xl mx-auto">
             {[
               { icon: Leaf, label: "100% Farm Fresh" },
-              { icon: Globe, label: "Global Export Quality" },
+              { icon: Globe2, label: "Global Export Quality" },
               { icon: PackageCheck, label: "International Packaging" },
               { icon: ShieldCheck, label: "Certified Products" }
             ].map((feature, i) => (
@@ -115,19 +107,44 @@ export default function ProductsCatalogue() {
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.8, delay: i * 0.1 }}
-                className="flex flex-col items-center text-center px-4"
+                transition={{ delay: i * 0.1 }}
+                className="flex flex-col items-center justify-center gap-4 p-8 rounded-[24px] bg-white/5 border border-white/10 backdrop-blur-sm group hover:bg-white/10 hover:-translate-y-2 hover:shadow-[0_8px_30px_rgba(0,0,0,0.12)] hover:border-white/20 transition-all duration-500 cursor-pointer"
               >
-                <feature.icon className="w-8 h-8 text-accent mb-6" strokeWidth={1.5} />
-                <h3 className="text-white text-sm tracking-widest uppercase font-semibold">{feature.label}</h3>
+                <feature.icon className="w-8 h-8 text-accent group-hover:scale-110 group-hover:-rotate-12 transition-transform duration-500 ease-out" />
+                <span className="text-white font-bold tracking-widest text-xs uppercase text-center">{feature.label}</span>
               </motion.div>
             ))}
+          </div>
+
+          {/* Mobile Auto-Scrolling Marquee */}
+          <div className="flex md:hidden overflow-hidden relative -mx-6">
+            <div className="flex gap-4 animate-marquee hover:[animation-play-state:paused] w-max px-4">
+              {[
+                { icon: Leaf, label: "100% Farm Fresh" },
+                { icon: Globe2, label: "Global Export Quality" },
+                { icon: PackageCheck, label: "International Packaging" },
+                { icon: ShieldCheck, label: "Certified Products" },
+                // Duplicate for seamless infinite scroll
+                { icon: Leaf, label: "100% Farm Fresh" },
+                { icon: Globe2, label: "Global Export Quality" },
+                { icon: PackageCheck, label: "International Packaging" },
+                { icon: ShieldCheck, label: "Certified Products" }
+              ].map((feature, i) => (
+                <div 
+                  key={i}
+                  className="flex flex-col items-center justify-center gap-3 p-6 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-sm w-[160px] shrink-0"
+                >
+                  <feature.icon className="w-6 h-6 text-accent" />
+                  <span className="text-white font-bold tracking-widest text-[10px] uppercase text-center">{feature.label}</span>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </section>
 
       {/* Products Grid */}
-      <section className="py-16 md:py-24 bg-slate-50 relative overflow-hidden" id="catalog">
+      <section className="pt-10 pb-16 md:py-24 bg-slate-50 relative overflow-hidden" id="catalog">
         {/* Background Elements */}
         <div className="absolute top-0 right-0 w-[300px] md:w-[600px] lg:w-[800px] h-[300px] md:h-[600px] lg:h-[800px] bg-accent/5 rounded-full blur-[80px] md:blur-[120px] pointer-events-none" />
         
@@ -139,36 +156,44 @@ export default function ProductsCatalogue() {
             </h2>
             <div className="w-24 h-px bg-accent mx-auto mt-8 mb-12"></div>
             
-            {/* Horizontal Scrolling Categories with Pictures */}
-            <div className="flex overflow-x-auto pb-4 -mx-6 px-6 sm:mx-0 sm:px-0 sm:flex-wrap justify-start sm:justify-center gap-3 sm:gap-6 scrollbar-hide">
-              {categories.map((cat) => (
+            <div className="flex flex-wrap justify-center gap-6 md:gap-8 mb-16">
+            <button
+              onClick={() => setActiveCategory("All")}
+              className={`flex flex-col items-center group`}
+            >
+              <div className={cn(
+                "w-16 sm:w-24 h-16 sm:h-24 rounded-full sm:rounded-2xl flex items-center justify-center mb-3 transition-colors duration-300",
+                activeCategory === "All" ? "bg-[#0B1F3A] text-white" : "bg-white text-slate-400 group-hover:bg-slate-100 shadow-sm border border-slate-100"
+              )}>
+                <span className="text-sm sm:text-base font-bold tracking-widest uppercase">All</span>
+              </div>
+              <span className={cn(
+                "text-[10px] sm:text-xs font-bold tracking-widest uppercase",
+                activeCategory === "All" ? "text-accent" : "text-slate-400 group-hover:text-primary"
+              )}>
+                All Products
+              </span>
+            </button>
+            {categories.map((cat) => (
                 <button
                   key={cat.name}
                   onClick={() => setActiveCategory(cat.name)}
-                  className={cn(
-                    "relative flex-shrink-0 w-24 h-24 sm:w-36 sm:h-36 lg:w-44 lg:h-44 rounded-[1.25rem] sm:rounded-3xl overflow-hidden group transition-all duration-300 border-[3px] sm:border-4",
-                    activeCategory === cat.name 
-                      ? "border-accent shadow-xl shadow-accent/20 scale-105"
-                      : "border-transparent hover:border-accent/50 shadow-md hover:shadow-lg"
-                  )}
+                  className="flex flex-col items-center group"
                 >
-                  <div className="absolute inset-0">
-                    <Image src={cat.image} alt={cat.name} fill className="object-cover transition-transform duration-700 group-hover:scale-110" />
-                  </div>
                   <div className={cn(
-                    "absolute inset-0 transition-colors duration-300",
+                    "relative w-16 sm:w-24 h-16 sm:h-24 rounded-full sm:rounded-2xl overflow-hidden mb-3 transition-all duration-300",
                     activeCategory === cat.name 
-                      ? "bg-black/40"
-                      : "bg-black/60 group-hover:bg-black/50"
-                  )} />
-                  <div className="absolute inset-0 flex items-center justify-center p-3 text-center">
-                    <span className={cn(
-                      "font-bold uppercase tracking-widest text-[0.65rem] sm:text-xs lg:text-sm drop-shadow-lg transition-colors duration-300",
-                      activeCategory === cat.name ? "text-accent" : "text-white group-hover:text-white"
-                    )}>
-                      {cat.name}
-                    </span>
+                      ? "ring-2 ring-offset-2 ring-accent"
+                      : "ring-0"
+                  )}>
+                    <Image src={cat.image} alt={cat.name} fill className="object-cover" />
                   </div>
+                  <span className={cn(
+                    "text-[10px] sm:text-xs font-bold tracking-widest uppercase",
+                    activeCategory === cat.name ? "text-accent" : "text-slate-400 group-hover:text-primary"
+                  )}>
+                    {cat.name}
+                  </span>
                 </button>
               ))}
             </div>
@@ -210,21 +235,21 @@ export default function ProductsCatalogue() {
                     </h3>
 
                     {/* Action Buttons */}
-                    <div className="flex flex-col gap-2 sm:gap-3 mt-auto">
+                    <div className="flex flex-row gap-2 mt-auto">
                       <Link 
                         href={`/products/${product.name.toLowerCase().replace(/\s+/g, '-')}`}
-                        className="w-full py-2.5 rounded border border-gray-200 text-gray-600 text-[10px] sm:text-xs font-bold tracking-wider uppercase flex items-center justify-center gap-2 hover:bg-gray-50 hover:border-gray-300 transition-colors"
+                        className="flex-1 py-2 rounded-full border border-gray-200 text-gray-600 text-[10px] sm:text-[10px] font-bold tracking-wider uppercase flex items-center justify-center gap-1 sm:gap-2 hover:bg-gray-50 hover:border-gray-300 transition-colors"
                       >
-                        View Details <ExternalLink className="w-3 sm:w-3.5 h-3 sm:h-3.5" />
+                        View Details <ExternalLink className="w-3 h-3" />
                       </Link>
                       
                       <a 
                         href={getWhatsAppLink(product.name)}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="w-full py-2.5 rounded bg-[#25D366] text-white text-[10px] sm:text-xs font-bold tracking-wider uppercase hover:bg-[#20bd5a] transition-colors shadow-sm flex items-center justify-center gap-2"
+                        className="flex-1 py-2 rounded-full bg-[#0B1F3A] text-white border border-[#0B1F3A] text-[9px] sm:text-[10px] font-bold tracking-widest uppercase hover:bg-[#1a365d] transition-colors shadow-sm flex items-center justify-center gap-1 sm:gap-2"
                       >
-                        <MessageCircle className="w-3.5 sm:w-4 h-3.5 sm:h-4" /> WhatsApp
+                        <MessageCircle className="w-3 h-3 text-[#25D366]" /> WhatsApp
                       </a>
                     </div>
                   </div>
@@ -236,10 +261,12 @@ export default function ProductsCatalogue() {
         </div>
       </section>
 
-      {/* Filter Categories */}
-      <section className="py-16 md:py-24 bg-white relative">
-        <div className="container mx-auto px-4 md:px-6">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-16">
+      {/* Info Sections */}
+      <section className="py-12 md:py-24 bg-[#f8f9fa] relative border-t border-gray-100">
+        <div className="container mx-auto px-4 md:px-6 overflow-hidden relative">
+          
+          {/* Desktop Grid */}
+          <div className="hidden md:grid md:grid-cols-3 md:gap-16 pb-8 md:pb-0">
             {[
               {
                 icon: MapPin,
@@ -247,37 +274,87 @@ export default function ProductsCatalogue() {
                 desc: "Exporting to over 35 countries across the Middle East, Europe, Africa, and North America with localized compliance."
               },
               {
-                icon: Ship,
-                title: "Logistics",
-                desc: "Partnered with top-tier shipping lines ensuring timely delivery via 20ft and 40ft containers under optimal conditions."
+                icon: ShieldCheck,
+                title: "Strict Compliance",
+                desc: "Every shipment adheres strictly to international phytosanitary standards, SGS inspections, and ISO guidelines."
               },
               {
-                icon: FileText,
-                title: "Documentation",
-                desc: "Flawless execution of all export documentation, including Phytosanitary, Certificate of Origin, and SGS Inspection."
+                icon: Ship,
+                title: "Reliable Logistics",
+                desc: "End-to-end logistics solutions ensuring your goods arrive on time, in perfect condition, via sea or air freight."
               }
             ].map((info, i) => (
               <motion.div 
                 key={i}
-                initial={{ opacity: 0, y: 20 }}
+                initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.8, delay: i * 0.2 }}
-                className="flex flex-col items-center text-center"
+                transition={{ duration: 0.6, delay: i * 0.15 }}
+                className="flex flex-col items-center text-center group bg-white border border-gray-100 md:border-transparent p-6 md:p-0 rounded-2xl md:rounded-none shadow-sm md:shadow-none"
               >
-                <div className="w-20 h-20 rounded-full border border-gray-100 shadow-xl flex items-center justify-center mb-8 bg-white group-hover:scale-110 transition-transform">
-                  <info.icon className="w-8 h-8 text-[#0B1F3A]" strokeWidth={1} />
+                <div className="w-16 h-16 md:w-20 md:h-20 rounded-full bg-slate-50 border border-gray-100 flex items-center justify-center mb-6 md:mb-8 group-hover:bg-[#0B1F3A] transition-colors duration-500 shadow-sm">
+                  <info.icon className="w-8 h-8 text-accent" strokeWidth={1.5} />
                 </div>
-                <h3 className="text-xl font-heading font-semibold text-[#0B1F3A] mb-4">{info.title}</h3>
-                <p className="text-gray-500 font-light leading-relaxed">{info.desc}</p>
+                <h3 className="text-xl font-heading font-bold text-[#0B1F3A] mb-3 md:mb-4">{info.title}</h3>
+                <p className="text-slate-500 font-light leading-relaxed text-sm md:text-base">{info.desc}</p>
               </motion.div>
             ))}
+          </div>
+
+          {/* Mobile Marquee */}
+          <div className="flex md:hidden relative -mx-4">
+            <div className="flex gap-4 animate-marquee active:[animation-play-state:paused] w-max px-4">
+              {[
+                {
+                  icon: MapPin,
+                  title: "Global Reach",
+                  desc: "Exporting to over 35 countries across the Middle East, Europe, Africa, and North America with localized compliance."
+                },
+                {
+                  icon: ShieldCheck,
+                  title: "Strict Compliance",
+                  desc: "Every shipment adheres strictly to international phytosanitary standards, SGS inspections, and ISO guidelines."
+                },
+                {
+                  icon: Ship,
+                  title: "Reliable Logistics",
+                  desc: "End-to-end logistics solutions ensuring your goods arrive on time, in perfect condition, via sea or air freight."
+                },
+                // Duplicated for seamless marquee
+                {
+                  icon: MapPin,
+                  title: "Global Reach",
+                  desc: "Exporting to over 35 countries across the Middle East, Europe, Africa, and North America with localized compliance."
+                },
+                {
+                  icon: ShieldCheck,
+                  title: "Strict Compliance",
+                  desc: "Every shipment adheres strictly to international phytosanitary standards, SGS inspections, and ISO guidelines."
+                },
+                {
+                  icon: Ship,
+                  title: "Reliable Logistics",
+                  desc: "End-to-end logistics solutions ensuring your goods arrive on time, in perfect condition, via sea or air freight."
+                }
+              ].map((info, i) => (
+                <div 
+                  key={i}
+                  className="flex flex-col items-center text-center group bg-white border border-gray-100 p-5 rounded-2xl w-[220px] shrink-0 shadow-sm hover:shadow-md transition-shadow"
+                >
+                  <div className="w-12 h-12 rounded-full bg-[#f8f9fa] border border-gray-100 flex items-center justify-center mb-4 shadow-sm group-hover:bg-[#0B1F3A] transition-colors duration-300">
+                    <info.icon className="w-5 h-5 text-accent group-hover:text-white transition-colors duration-300" strokeWidth={1.5} />
+                  </div>
+                  <h3 className="text-sm font-heading font-bold text-[#0B1F3A] mb-2">{info.title}</h3>
+                  <p className="text-slate-500 font-light leading-relaxed text-[11px]">{info.desc}</p>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </section>
 
       {/* 5. CALL TO ACTION */}
-      <section className="relative py-32 bg-[#0B1F3A] overflow-hidden">
+      <section className="relative py-16 md:py-24 bg-[#0B1F3A] overflow-hidden">
         <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-20 mix-blend-overlay" />
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-accent/10 rounded-full blur-[150px] pointer-events-none" />
         
@@ -296,16 +373,16 @@ export default function ProductsCatalogue() {
               Partner with Garuda Global Exports for reliable, premium agricultural products. Contact our export specialists today.
             </p>
             
-            <div className="flex flex-col sm:flex-row justify-center gap-6">
+            <div className="flex flex-col sm:flex-row justify-center gap-4 md:gap-6">
               <a 
                 href="https://wa.me/918143944888?text=Hello%20Garuda%20Global%20Exports,%20I%20would%20like%20to%20request%20a%20quote."
                 target="_blank"
                 rel="noopener noreferrer"
-                className="px-10 py-5 bg-[#25D366] text-white rounded-full text-sm font-bold tracking-widest uppercase hover:bg-[#20bd5a] transition-colors duration-300 shadow-[0_0_20px_rgba(37,211,102,0.3)] flex items-center justify-center gap-3"
+                className="w-full sm:w-auto px-6 md:px-10 py-3 md:py-4 bg-white text-[#0B1F3A] rounded-full text-xs md:text-sm font-bold tracking-widest uppercase hover:bg-gray-100 transition-colors duration-300 flex items-center justify-center gap-2 md:gap-3"
               >
-                <MessageCircle className="w-5 h-5" /> Chat on WhatsApp
+                <MessageCircle className="w-4 md:w-5 h-4 md:h-5 text-[#25D366]" /> Chat on WhatsApp
               </a>
-              <Link href="/contact" className="px-10 py-5 bg-transparent border border-white/30 text-white rounded-full text-sm font-bold tracking-widest uppercase hover:bg-white/10 transition-colors duration-300">
+              <Link href="/contact" className="w-full sm:w-auto px-6 md:px-10 py-3 md:py-4 bg-transparent border border-white/30 text-white rounded-full text-xs md:text-sm font-bold tracking-widest uppercase hover:bg-white/10 transition-colors duration-300 flex items-center justify-center">
                 Contact Sales
               </Link>
             </div>

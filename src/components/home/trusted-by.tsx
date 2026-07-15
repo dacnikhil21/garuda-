@@ -19,7 +19,7 @@ const countries = [
 
 export function TrustedBy() {
   return (
-    <section className="py-24 bg-primary text-white overflow-hidden border-t border-white/10">
+    <section className="py-12 md:py-24 bg-primary text-white overflow-hidden border-t border-white/10">
       <div className="container mx-auto px-6 mb-12 text-center">
         <h2 className="text-sm font-semibold tracking-[0.2em] uppercase text-white/50 mb-4">
           Trusted By Partners Across

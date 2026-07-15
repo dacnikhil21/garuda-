@@ -16,7 +16,7 @@ export function AboutPreview() {
   const y2 = useTransform(scrollYProgress, [0, 1], [-100, 100]);
 
   return (
-    <section ref={containerRef} className="py-32 bg-white relative overflow-hidden">
+    <section ref={containerRef} className="py-16 md:py-32 bg-white relative overflow-hidden">
       <div className="container mx-auto px-6 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           

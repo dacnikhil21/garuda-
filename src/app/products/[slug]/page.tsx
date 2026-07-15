@@ -101,18 +101,18 @@ export default async function ProductDetailPage({ params }: { params: Promise<{ 
             <div className="w-full h-px bg-gray-200 mb-12" />
 
             {/* Actions */}
-            <div className="flex flex-col sm:flex-row items-center gap-6">
+            <div className="flex flex-col sm:flex-row items-center gap-4 md:gap-6">
               <a 
                 href={getWhatsAppLink(product.name)}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-full sm:w-auto px-10 py-5 bg-[#25D366] text-white rounded-full text-sm font-bold tracking-widest uppercase hover:bg-[#20bd5a] transition-all duration-300 shadow-[0_0_20px_rgba(37,211,102,0.3)] hover:shadow-[0_0_30px_rgba(37,211,102,0.5)] flex items-center justify-center gap-3"
+                className="w-full sm:w-auto px-6 md:px-10 py-3 md:py-5 bg-[#0B1F3A] text-white rounded-full text-xs md:text-sm font-bold tracking-widest uppercase hover:bg-[#1a365d] transition-all duration-300 shadow-sm flex items-center justify-center gap-2 md:gap-3"
               >
-                <MessageCircle className="w-5 h-5" /> Request Quote on WhatsApp
+                <MessageCircle className="w-4 md:w-5 h-4 md:h-5 text-[#25D366]" /> Request Quote on WhatsApp
               </a>
               <Link 
                 href="/contact"
-                className="w-full sm:w-auto px-10 py-5 bg-transparent border border-gray-300 text-gray-600 rounded-full text-sm font-bold tracking-widest uppercase hover:bg-gray-50 hover:border-gray-400 transition-colors flex justify-center"
+                className="w-full sm:w-auto px-6 md:px-10 py-3 md:py-5 bg-transparent border border-gray-300 text-gray-600 rounded-full text-xs md:text-sm font-bold tracking-widest uppercase hover:bg-gray-50 hover:border-gray-400 transition-colors flex justify-center"
               >
                 Contact Sales
               </Link>
