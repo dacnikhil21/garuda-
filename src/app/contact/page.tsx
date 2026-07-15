@@ -22,11 +22,11 @@ export default function ContactPage() {
     <div className="min-h-screen flex flex-col bg-slate-50">
       
       {/* Contact Premium Hero Section */}
-      <section className="relative pt-40 pb-24 overflow-hidden bg-[#020813]">
+      <section className="relative pt-32 md:pt-40 pb-16 md:pb-24 overflow-hidden bg-[#020813]">
         {/* Premium Dark Gradient & Glows */}
         <div className="absolute inset-0 bg-gradient-to-br from-[#020813] via-[#051229] to-[#020813]" />
-        <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-accent/5 rounded-full blur-[150px] translate-x-1/3 -translate-y-1/3 pointer-events-none" />
-        <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-primary/20 rounded-full blur-[120px] -translate-x-1/3 translate-y-1/3 pointer-events-none" />
+        <div className="absolute top-0 right-0 w-[300px] md:w-[600px] lg:w-[800px] h-[300px] md:h-[600px] lg:h-[800px] bg-accent/5 rounded-full blur-[80px] md:blur-[150px] translate-x-1/3 -translate-y-1/3 pointer-events-none" />
+        <div className="absolute bottom-0 left-0 w-[300px] md:w-[400px] lg:w-[600px] h-[300px] md:h-[400px] lg:h-[600px] bg-primary/20 rounded-full blur-[80px] md:blur-[120px] -translate-x-1/3 translate-y-1/3 pointer-events-none" />
         
         {/* Subtle grid pattern for texture */}
         <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-20 mix-blend-overlay" />
@@ -59,8 +59,8 @@ export default function ContactPage() {
       </section>
 
       {/* Contact Content */}
-      <section className="py-24 relative -mt-10">
-        <div className="container mx-auto px-6">
+      <section className="py-16 md:py-24 relative -mt-10">
+        <div className="container mx-auto px-4 md:px-6">
           <div className="flex flex-col lg:flex-row gap-12 max-w-6xl mx-auto">
             
             {/* Contact Info Cards */}
@@ -178,9 +178,9 @@ export default function ContactPage() {
                   <button 
                     type="submit" 
                     disabled={isSubmitting}
-                    className="w-full bg-[#0B2B5E] hover:bg-accent text-white py-4 rounded-lg font-bold tracking-[0.2em] uppercase transition-all duration-300 flex items-center justify-center gap-2 disabled:opacity-70"
+                    className="w-full bg-[#0B2B5E] hover:bg-accent text-white py-4 px-4 rounded-lg text-sm md:text-base font-bold tracking-widest md:tracking-[0.2em] uppercase transition-all duration-300 flex items-center justify-center gap-2 disabled:opacity-70 whitespace-normal text-center"
                   >
-                    {isSubmitting ? "Sending..." : "Submit Quote Request"} <Send className="w-4 h-4" />
+                    {isSubmitting ? "Sending..." : "Submit Quote Request"} <Send className="w-4 h-4 shrink-0" />
                   </button>
                 </form>
               )}

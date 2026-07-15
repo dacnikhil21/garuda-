@@ -38,7 +38,7 @@ export function Footer() {
             <ul className="space-y-4">
               {["Rice", "Vegetables", "Spices", "Fruits", "Makhana"].map((product) => (
                 <li key={product}>
-                  <Link href="#" className="text-white/70 hover:text-accent transition-colors">
+                  <Link href={`/products#catalog`} className="text-white/70 hover:text-accent transition-colors">
                     {product}
                   </Link>
                 </li>
@@ -75,8 +75,8 @@ export function Footer() {
         <div className="flex flex-col md:flex-row items-center justify-between pt-8 border-t border-white/10 text-white/50 text-sm">
           <p>© {new Date().getFullYear()} Garuda Global Exports. All rights reserved.</p>
           <div className="flex gap-6 mt-4 md:mt-0">
-            <Link href="#" className="hover:text-white transition-colors">Privacy Policy</Link>
-            <Link href="#" className="hover:text-white transition-colors">Terms of Service</Link>
+            <Link href="/privacy" className="hover:text-white transition-colors">Privacy Policy</Link>
+            <Link href="/terms" className="hover:text-white transition-colors">Terms of Service</Link>
           </div>
         </div>
       </div>

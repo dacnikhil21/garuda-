@@ -31,6 +31,8 @@ export function Navbar() {
     }
   });
 
+  const needsSolidNav = pathname !== "/" && pathname !== "/products";
+
   // Lock body scroll when mobile menu is open
   useEffect(() => {
     if (mobileMenuOpen) {
@@ -45,9 +47,11 @@ export function Navbar() {
       <header
         className={cn(
           "fixed top-0 inset-x-0 z-50 transition-all duration-500 w-full",
-          scrolled
-            ? "bg-black/40 backdrop-blur-2xl border-b border-white/10 py-4 shadow-[0_8px_32px_rgba(0,0,0,0.3)]" 
-            : "bg-transparent py-6 border-b border-transparent"
+          needsSolidNav
+            ? (scrolled ? "bg-[#0B1F3A]/95 backdrop-blur-2xl border-b border-white/10 py-4 shadow-lg" : "bg-[#0B1F3A] py-6 shadow-md")
+            : (scrolled
+                ? "bg-black/40 backdrop-blur-2xl border-b border-white/10 py-4 shadow-[0_8px_32px_rgba(0,0,0,0.3)]" 
+                : "bg-transparent py-6 border-b border-transparent")
         )}
       >
         <div className="container mx-auto px-6 lg:px-12 flex items-center justify-between">

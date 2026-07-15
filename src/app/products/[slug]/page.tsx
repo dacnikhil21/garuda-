@@ -1,6 +1,7 @@
 import { allProducts } from "@/data/products";
 import { notFound } from "next/navigation";
 import Link from "next/link";
+import Image from "next/image";
 import { ArrowLeft, MessageCircle, ShieldCheck, Truck, PackageCheck, Leaf } from "lucide-react";
 
 export default async function ProductDetailPage({ params }: { params: Promise<{ slug: string }> }) {
@@ -22,9 +23,9 @@ export default async function ProductDetailPage({ params }: { params: Promise<{ 
     <div className="pt-32 pb-24 min-h-screen bg-[#FAF9F6] font-sans selection:bg-accent/30 selection:text-primary">
       <div className="container mx-auto px-6">
         
-        <Link href="/products" className="inline-flex items-center gap-2 text-sm font-bold tracking-widest uppercase text-gray-500 hover:text-accent transition-colors mb-12">
+        <a href="/products#catalog" className="inline-flex items-center gap-2 text-sm font-bold tracking-widest uppercase text-gray-500 hover:text-accent transition-colors mb-12">
           <ArrowLeft className="w-4 h-4" /> Back to Catalog
-        </Link>
+        </a>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
           
@@ -32,10 +33,11 @@ export default async function ProductDetailPage({ params }: { params: Promise<{ 
           <div className="relative group">
             <div className="absolute inset-0 bg-accent/20 blur-3xl rounded-full transform -translate-x-1/2 -translate-y-1/2 opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
             <div className="relative aspect-square rounded-3xl overflow-hidden border-8 border-white shadow-2xl bg-white">
-              <img 
+              <Image 
                 src={product.image} 
                 alt={product.name} 
-                className="w-full h-full object-cover transform hover:scale-110 transition-transform duration-1000 ease-out"
+                fill
+                className="object-cover transform hover:scale-110 transition-transform duration-1000 ease-out"
               />
             </div>
             

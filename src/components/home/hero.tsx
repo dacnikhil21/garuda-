@@ -33,7 +33,7 @@ export function Hero() {
             Garuda Global Exports
           </span>
           
-          <h1 className="text-5xl md:text-7xl lg:text-[6rem] font-heading font-bold tracking-tight mb-8 leading-[1.1] text-white drop-shadow-2xl">
+          <h1 className="text-4xl sm:text-5xl md:text-7xl lg:text-[6rem] font-heading font-bold tracking-tight mb-6 md:mb-8 leading-[1.1] text-white drop-shadow-2xl">
             Bringing India&apos;s <br />
             <span className="text-accent">Finest</span> to the World
           </h1>
@@ -43,7 +43,7 @@ export function Hero() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 1, ease: "easeOut", delay: 0.6 }}
-          className="text-lg md:text-xl text-white max-w-2xl font-light tracking-wide drop-shadow-lg"
+          className="text-base sm:text-lg md:text-xl text-white max-w-2xl mx-auto font-light tracking-wide drop-shadow-lg px-4 sm:px-0"
         >
           Garuda Global Exports is a trusted exporter of premium agricultural products. Delivering quality, reliability and excellence across global markets.
         </motion.p>
@@ -52,9 +52,9 @@ export function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.9 }}
-          className="mt-10 flex gap-4"
+          className="mt-8 md:mt-10 flex flex-wrap justify-center gap-4"
         >
-           <Link href="/products" className="bg-accent hover:bg-accent/90 text-primary px-8 py-4 rounded text-sm font-bold tracking-wide uppercase transition-colors flex items-center justify-center gap-2 shadow-xl shadow-black/20">
+           <Link href="/products" className="bg-accent hover:bg-accent/90 text-primary px-6 md:px-8 py-3 md:py-4 rounded text-xs sm:text-sm font-bold tracking-wide uppercase transition-colors flex items-center justify-center gap-2 shadow-xl shadow-black/20 whitespace-nowrap">
              Explore Products
            </Link>
         </motion.div>

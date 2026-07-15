@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { motion, useScroll, useTransform, AnimatePresence } from "framer-motion";
 import Link from "next/link";
+import Image from "next/image";
 import { 
   ArrowRight, 
   Leaf, 
@@ -46,9 +47,9 @@ export default function ProductsCatalogue() {
   return (
     <div className="bg-[#FAF9F6] min-h-screen font-sans selection:bg-accent/30 selection:text-primary">
       
-      {/* 1. HERO SECTION */}
-      <section className="relative h-screen min-h-[800px] flex items-center justify-center overflow-hidden">
-        {/* Parallax Background */}
+      {/* Premium Hero Section */}
+      <section className="relative h-screen min-h-[600px] md:min-h-[800px] flex items-center justify-center overflow-hidden">
+        {/* Full Screen Video Background */}
         <motion.div style={{ y }} className="absolute inset-0 w-full h-[120%] -top-[10%]">
           <video
             autoPlay
@@ -74,9 +75,10 @@ export default function ProductsCatalogue() {
                 <span className="w-12 h-px bg-accent"></span>
                 International Export Catalogue
               </h2>
-              <h1 className="text-5xl md:text-7xl lg:text-8xl font-heading font-light text-white leading-[1.1] mb-8 drop-shadow-2xl">
-                Premium <br />
-                <span className="font-semibold text-white">Agricultural Products</span>
+              <h1 className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-heading font-light text-white leading-[1.1] mb-6 md:mb-8 drop-shadow-2xl">
+                Global <br />
+                <span className="font-bold text-accent drop-shadow-[0_0_15px_rgba(212,175,55,0.3)]">Agricultural</span> <br />
+                <span className="italic font-serif">Excellence.</span>
               </h1>
               <p className="text-lg md:text-xl text-white/90 max-w-xl font-light leading-relaxed mb-12 drop-shadow-md">
                 Carefully sourced from India's finest farms and prepared for global export with uncompromising quality standards.
@@ -124,9 +126,12 @@ export default function ProductsCatalogue() {
         </div>
       </section>
 
-      {/* 3. PRODUCT CATALOG WITH TABS */}
-      <section id="catalog" className="py-32 bg-[#FAF9F6] relative z-20">
-        <div className="container mx-auto px-6">
+      {/* Products Grid */}
+      <section className="py-16 md:py-24 bg-slate-50 relative overflow-hidden" id="catalog">
+        {/* Background Elements */}
+        <div className="absolute top-0 right-0 w-[300px] md:w-[600px] lg:w-[800px] h-[300px] md:h-[600px] lg:h-[800px] bg-accent/5 rounded-full blur-[80px] md:blur-[120px] pointer-events-none" />
+        
+        <div className="container mx-auto px-4 md:px-6 relative z-10">
           
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-heading text-[#0B1F3A] font-light">
@@ -148,7 +153,7 @@ export default function ProductsCatalogue() {
                   )}
                 >
                   <div className="absolute inset-0">
-                    <img src={cat.image} alt={cat.name} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
+                    <Image src={cat.image} alt={cat.name} fill className="object-cover transition-transform duration-700 group-hover:scale-110" />
                   </div>
                   <div className={cn(
                     "absolute inset-0 transition-colors duration-300",
@@ -184,10 +189,11 @@ export default function ProductsCatalogue() {
                   {/* Image Area */}
                   <div className="relative h-48 sm:h-56 overflow-hidden bg-gray-50 p-2">
                     <div className="w-full h-full rounded-xl overflow-hidden relative">
-                      <img 
+                      <Image 
                         src={product.image} 
                         alt={product.name} 
-                        className="w-full h-full object-cover transform hover:scale-110 transition-transform duration-700 ease-out"
+                        fill
+                        className="object-cover transform hover:scale-110 transition-transform duration-700 ease-out"
                       />
                     </div>
                   </div>
@@ -230,9 +236,9 @@ export default function ProductsCatalogue() {
         </div>
       </section>
 
-      {/* 4. EXPORT INFORMATION */}
-      <section className="py-32 bg-white relative z-20">
-        <div className="container mx-auto px-6">
+      {/* Filter Categories */}
+      <section className="py-16 md:py-24 bg-white relative">
+        <div className="container mx-auto px-4 md:px-6">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-16">
             {[
               {

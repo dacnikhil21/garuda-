@@ -13,9 +13,9 @@ const reasons = [
 
 export function WhyChooseUs() {
   return (
-    <section className="py-24 bg-primary text-white relative overflow-hidden">
+    <section className="py-16 md:py-24 bg-primary text-white relative overflow-hidden">
       {/* Background abstract element */}
-      <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-accent/10 rounded-full blur-[120px] -translate-y-1/2 translate-x-1/3 pointer-events-none" />
+      <div className="absolute top-0 right-0 w-[300px] md:w-[600px] lg:w-[800px] h-[300px] md:h-[600px] lg:h-[800px] bg-accent/10 rounded-full blur-[80px] md:blur-[120px] -translate-y-1/2 translate-x-1/3 pointer-events-none" />
 
       <div className="container mx-auto px-6 relative z-10">
         <div className="flex flex-col lg:flex-row items-center gap-16">

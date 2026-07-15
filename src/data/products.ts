@@ -1,9 +1,8 @@
 export const allProducts = [
-  // Rice
   { 
     name: "Raw Rice", 
     category: "Rice", 
-    image: "/images/products/raw-rice.jpg",
+    image: "/images/products/raw-rice.avif",
     description: "High-quality raw white rice sourced from regional farms. The grains are double-polished and carefully sorted, making it ideal for daily consumption, packaging, and commercial culinary uses." 
   },
   { 
@@ -65,10 +64,10 @@ export const allProducts = [
     description: "Widely regarded as the 'King of Mangoes'. Sourced from authentic coastal groves, it features a rich golden-yellow flesh, a buttery fiber-free texture, and a uniquely sweet, aromatic pulp." 
   },
   { 
-    name: "Banganapalli Mango", 
+    name: "Kesar Mango", 
     category: "Fruits", 
-    image: "/images/products/banganapalli-mango.jpg",
-    description: "Premium Banganapalli mangoes, famous for their large size, thin yellow skin, and firm pulp with a pleasant sweet aroma and highly clean, fiber-free texture." 
+    image: "/images/products/kesar-mango.jpg",
+    description: "Premium Kesar mangoes, famous for their vibrant orange skin, rich sweetness, and distinct aroma. Highly sought after for their smooth texture and premium quality." 
   },
   
   // Spices

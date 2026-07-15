@@ -1,6 +1,7 @@
 "use client";
 
 import { useRef } from "react";
+import Image from "next/image";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { MagneticButton } from "@/components/ui/magnetic-button";
 
@@ -56,12 +57,12 @@ export function AboutPreview() {
           <div className="relative h-[600px] hidden lg:block">
             <motion.div style={{ y: y1 }} className="absolute top-0 left-0 w-2/3 h-[400px] rounded-2xl overflow-hidden shadow-2xl">
               <div className="absolute inset-0 bg-primary/20 mix-blend-multiply z-10" />
-              <img src="https://images.unsplash.com/photo-1596040033229-a9821ebd058d?q=80&w=2070&auto=format&fit=crop" alt="Premium Rice" className="w-full h-full object-cover" />
+              <Image src="https://images.unsplash.com/photo-1596040033229-a9821ebd058d?q=80&w=2070&auto=format&fit=crop" alt="Premium Rice" fill unoptimized className="object-cover" />
             </motion.div>
             
             <motion.div style={{ y: y2 }} className="absolute bottom-0 right-0 w-1/2 h-[350px] rounded-2xl overflow-hidden shadow-2xl z-20">
               <div className="absolute inset-0 bg-primary/10 mix-blend-multiply z-10" />
-              <img src="https://images.unsplash.com/photo-1596649280962-e64e1d1ebc96?q=80&w=2070&auto=format&fit=crop" alt="Indian Spices" className="w-full h-full object-cover" />
+              <Image src="https://images.unsplash.com/photo-1596649280962-e64e1d1ebc96?q=80&w=2070&auto=format&fit=crop" alt="Indian Spices" fill unoptimized className="object-cover" />
             </motion.div>
           </div>
           

@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import Link from "next/link";
+import Image from "next/image";
 import { ExternalLink, MessageCircle } from "lucide-react";
 
 const products = [
@@ -67,10 +68,11 @@ export function FeaturedProducts() {
                 {/* Image Top */}
                 <div className="relative h-48 sm:h-56 overflow-hidden bg-gray-50 p-2">
                    <div className="w-full h-full rounded-xl overflow-hidden relative">
-                      <img 
+                      <Image 
                         src={product.image} 
                         alt={product.name}
-                        className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700 ease-out"
+                        fill
+                        className="object-cover transform group-hover:scale-110 transition-transform duration-700 ease-out"
                       />
                    </div>
                 </div>

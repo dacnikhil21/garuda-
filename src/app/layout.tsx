@@ -15,8 +15,31 @@ const playfair = Playfair_Display({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://garudaexports.in"),
   title: "Garuda Global Exports",
   description: "Premium Agricultural Exports with Trust, Quality and Global Reach.",
+  openGraph: {
+    title: "Garuda Global Exports",
+    description: "Premium Agricultural Exports with Trust, Quality and Global Reach.",
+    url: "https://garudaexports.in",
+    siteName: "Garuda Global Exports",
+    images: [
+      {
+        url: "/images/og-image.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Garuda Global Exports",
+      }
+    ],
+    locale: "en_US",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Garuda Global Exports",
+    description: "Premium Agricultural Exports with Trust, Quality and Global Reach.",
+    images: ["/images/og-image.jpg"],
+  },
 };
 
 import { SplashScreen } from "@/components/layout/splash-screen";
