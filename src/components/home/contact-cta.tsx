@@ -2,8 +2,18 @@
 
 import { motion } from "framer-motion";
 import { MagneticButton } from "@/components/ui/magnetic-button";
+import { useRouter } from "next/navigation";
 
 export function ContactCTA() {
+  const router = useRouter();
+  
+  const handleWhatsApp = () => {
+    window.open("https://wa.me/918143944888?text=Hello%20Garuda%20Global%20Exports,%20I%20would%20like%20to%20partner%20with%20you.", "_blank");
+  };
+
+  const handleProducts = () => {
+    router.push("/products");
+  };
   return (
     <section className="py-16 md:py-32 relative overflow-hidden bg-secondary">
       <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?q=80&w=2070&auto=format&fit=crop')] bg-cover bg-center bg-fixed opacity-5 mix-blend-multiply" />
@@ -24,11 +34,11 @@ export function ContactCTA() {
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <MagneticButton className="bg-primary text-white hover:bg-primary/90 px-6 md:px-8 py-3 md:py-4 text-sm md:text-base rounded-full">
+            <MagneticButton onClick={handleWhatsApp} className="bg-primary text-white hover:bg-primary/90 px-6 md:px-8 py-3 md:py-4 text-sm md:text-base rounded-full">
               Contact Sales
             </MagneticButton>
-            <MagneticButton className="bg-transparent border border-primary text-primary hover:bg-primary/5 px-6 md:px-8 py-3 md:py-4 text-sm md:text-base rounded-full">
-              Download Brochure
+            <MagneticButton onClick={handleProducts} className="bg-transparent border border-primary text-primary hover:bg-primary/5 px-6 md:px-8 py-3 md:py-4 text-sm md:text-base rounded-full">
+              View Our Products
             </MagneticButton>
           </div>
         </motion.div>
