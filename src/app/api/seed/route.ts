@@ -51,32 +51,33 @@ export async function GET() {
       });
     }
 
-    // Seed Banners
-    const banners = [
-      {
-        title: "Premium Quality Spices",
-        subtitle: "Exporting the finest Indian spices globally.",
-        image: "https://images.unsplash.com/photo-1596040033229-a9821ebd058d?q=80&w=2070",
-        link: "/products",
-        isActive: true,
-        order: 1
-      },
-      {
-        title: "Global Export Partners",
-        subtitle: "Delivering fresh agricultural products worldwide.",
-        image: "https://images.unsplash.com/photo-1605000797499-95a51c5269ae?q=80&w=2071",
-        link: "/about",
-        isActive: true,
-        order: 2
-      }
-    ];
+    // Seed Banners only if they don't exist
+    const existingBanners = await prisma.banner.count();
+    if (existingBanners === 0) {
+      const banners = [
+        {
+          title: "Premium Quality Spices",
+          subtitle: "Exporting the finest Indian spices globally.",
+          image: "https://images.unsplash.com/photo-1596040033229-a9821ebd058d?q=80&w=2070",
+          link: "/products",
+          isActive: true,
+          order: 1
+        },
+        {
+          title: "Global Export Partners",
+          subtitle: "Delivering fresh agricultural products worldwide.",
+          image: "https://images.unsplash.com/photo-1605000797499-95a51c5269ae?q=80&w=2071",
+          link: "/about",
+          isActive: true,
+          order: 2
+        }
+      ];
 
-    for (const banner of banners) {
-      await prisma.banner.upsert({
-        where: { id: banner.order }, // Use order as ID for seeding purposes
-        update: banner,
-        create: { ...banner, id: banner.order },
-      });
+      for (const banner of banners) {
+        await prisma.banner.create({
+          data: banner,
+        });
+      }
     }
 
     return NextResponse.json({ success: true, message: 'Database seeded successfully with products and banners!' });
