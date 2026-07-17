@@ -11,7 +11,7 @@ import { prisma } from "@/lib/prisma";
 export const dynamic = 'force-dynamic';
 
 export default async function Home() {
-  const featuredNames = ["Basmathi Rice", "Sona Masuri", "Mirchi G4", "Onions", "Alphonso Mango", "Pomegranate", "Cardamom", "Premium Makhana"];
+  const featuredNames = ["Basmathi Rice", "Potato", "Ginger", "Cumin Seeds (Jeera)", "Peanuts", "Pomegranate", "Cardamom", "Premium Makhana"];
   const products = await prisma.product.findMany({
     where: {
       name: {
