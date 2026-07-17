@@ -9,4 +9,4 @@ export default async function ProductsPage() {
   });
 
   return <ProductsClient initialProducts={products} />;
-
+}
