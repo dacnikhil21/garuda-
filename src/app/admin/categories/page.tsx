@@ -67,14 +67,19 @@ export default async function CategoriesPage() {
                       </span>
                     </td>
                     <td className="py-4 px-6 text-right">
-                      <form action={async () => {
-                        'use server';
-                        await deleteCategoryAction(category.id);
-                      }}>
-                        <button type="submit" className="p-2 text-slate-400 hover:text-red-600 hover:bg-red-50 rounded-lg transition-colors" title="Delete">
-                          <Trash2 className="w-4 h-4" />
-                        </button>
-                      </form>
+                      <div className="flex items-center justify-end gap-2">
+                        <Link href={`/admin/categories/${category.id}`} className="p-2 text-slate-400 hover:text-[#0B1F3A] hover:bg-slate-100 rounded-lg transition-colors" title="Edit">
+                          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M17 3a2.85 2.83 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5Z"/></svg>
+                        </Link>
+                        <form action={async () => {
+                          'use server';
+                          await deleteCategoryAction(category.id);
+                        }}>
+                          <button type="submit" className="p-2 text-slate-400 hover:text-red-600 hover:bg-red-50 rounded-lg transition-colors" title="Delete">
+                            <Trash2 className="w-4 h-4" />
+                          </button>
+                        </form>
+                      </div>
                     </td>
                   </tr>
                 ))

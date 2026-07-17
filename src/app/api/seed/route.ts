@@ -25,6 +25,22 @@ export async function GET() {
       },
     });
 
+    const categories = [
+      { name: "Rice", slug: "rice", description: "Premium quality export rice." },
+      { name: "Vegetables", slug: "vegetables", description: "Fresh farm vegetables." },
+      { name: "Fruits", slug: "fruits", description: "Fresh tropical fruits." },
+      { name: "Spices", slug: "spices", description: "Aromatic Indian spices." },
+      { name: "Makhana", slug: "makhana", description: "Healthy premium fox nuts." }
+    ];
+
+    for (const category of categories) {
+      await prisma.category.upsert({
+        where: { slug: category.slug },
+        update: category,
+        create: category,
+      });
+    }
+
     for (const product of allProducts) {
       const slug = product.name.toLowerCase().replace(/\s+/g, '-');
       await prisma.product.upsert({

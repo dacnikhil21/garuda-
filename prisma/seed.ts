@@ -1,7 +1,5 @@
-import { PrismaClient } from '../src/generated/prisma/client';
+import { prisma } from '../src/lib/prisma';
 import { allProducts } from '../src/data/products';
-import { Pool } from 'pg';
-import { PrismaPg } from '@prisma/adapter-pg';
 
 // We create a hash function manually for the seed without relying on Next.js/Web Crypto
 import crypto from 'crypto';
@@ -16,10 +14,7 @@ async function hashPassword(password: string) {
   });
 }
 
-const connectionString = process.env.DATABASE_URL!;
-const pool = new Pool({ connectionString });
-const adapter = new PrismaPg(pool);
-const prisma = new PrismaClient({ adapter });
+
 
 async function main() {
   console.log(`Start seeding ...`);
