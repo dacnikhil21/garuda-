@@ -7,6 +7,13 @@ import { clearSession, createSession, verifyPassword } from '@/lib/auth';
 import { writeFile } from 'fs/promises';
 import { join } from 'path';
 import crypto from 'crypto';
+import { v2 as cloudinary } from 'cloudinary';
+
+cloudinary.config({
+  cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
+  api_key: process.env.CLOUDINARY_API_KEY,
+  api_secret: process.env.CLOUDINARY_API_SECRET,
+});
 
 const productSchema = z.object({
   name: z.string().min(1, 'Name is required'),
@@ -25,20 +32,15 @@ async function handleFileUpload(file: File | null): Promise<string | null> {
   const bytes = await file.arrayBuffer();
   const buffer = Buffer.from(bytes);
   
-  // Create a unique filename
-  const uniquePrefix = crypto.randomBytes(8).toString('hex');
-  const filename = `${uniquePrefix}-${file.name.replace(/[^a-zA-Z0-9.-]/g, '')}`;
-  
-  // Save to public/uploads
-  const uploadDir = join(process.cwd(), 'public', 'uploads');
-  const filepath = join(uploadDir, filename);
-  
-  // Ensure the directory exists
-  const { mkdir } = await import('fs/promises');
-  await mkdir(uploadDir, { recursive: true });
-
-  await writeFile(filepath, buffer);
-  return `/uploads/${filename}`;
+  return new Promise((resolve, reject) => {
+    cloudinary.uploader.upload_stream(
+      { folder: 'garuda' },
+      (error, result) => {
+        if (error) reject(error);
+        else resolve(result?.secure_url || null);
+      }
+    ).end(buffer);
+  });
 }
 
 export async function loginAction(formData: FormData) {
