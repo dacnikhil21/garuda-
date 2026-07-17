@@ -3,7 +3,7 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import { Edit, Trash2, Image as ImageIcon, ArrowUp, ArrowDown, Calendar, Loader2 } from 'lucide-react';
-import { Banner } from '@prisma/client';
+import { Banner } from '@/generated/prisma/client';
 import { updateBannerOrderAction, deleteBannerAction, toggleBannerStatusAction } from '../actions';
 import { useRouter } from 'next/navigation';
 

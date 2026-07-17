@@ -5,7 +5,7 @@ import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 import { ArrowLeft, Save, Loader2, Image as ImageIcon } from 'lucide-react';
 import { updateBannerAction } from '../../../actions';
-import { Banner } from '@prisma/client';
+import { Banner } from '@/generated/prisma/client';
 
 export default function EditBannerForm({ banner }: { banner: Banner }) {
   const router = useRouter();
