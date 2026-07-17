@@ -3,6 +3,8 @@ import Link from 'next/link';
 import { Plus } from 'lucide-react';
 import BannerList from './banner-list';
 
+export const dynamic = 'force-dynamic';
+
 export default async function BannersPage() {
   const banners = await prisma.banner.findMany({
     orderBy: { order: 'asc' }

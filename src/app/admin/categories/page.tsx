@@ -4,6 +4,8 @@ import { Plus, Trash2, Image as ImageIcon } from 'lucide-react';
 import { deleteCategoryAction } from '../actions';
 import { revalidatePath } from 'next/cache';
 
+export const dynamic = 'force-dynamic';
+
 export default async function CategoriesPage() {
   const categories = await prisma.category.findMany({
     orderBy: { createdAt: 'desc' }

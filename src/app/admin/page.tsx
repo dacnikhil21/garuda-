@@ -4,6 +4,8 @@ import Image from 'next/image';
 import { Edit2, Plus, Trash2, Package } from 'lucide-react';
 import { deleteProductAction } from './actions';
 
+export const dynamic = 'force-dynamic';
+
 // We fetch data in a Server Component
 export default async function AdminDashboard() {
   const products = await prisma.product.findMany({
