@@ -118,12 +118,42 @@ export const allProducts = [
     bgColor: "bg-red-50", pillBg: "bg-red-100", pillText: "text-red-700", badge: "SPICY EXPORT"
   },
   
-  // Makhana
-  { 
-    name: "Premium Makhana", 
-    category: "Makhana", 
-    image: "/images/products/premium-makhana.jpg",
-    description: "Export-grade popped fox nuts (lotus seeds), carefully graded for size, white color, and moisture content. Naturally processed to offer a clean, crunchy, high-protein, and healthy snack alternative.",
-    bgColor: "bg-purple-100", pillBg: "bg-purple-200", pillText: "text-purple-900", badge: "HEALTHY SNACK"
-  },
-];
+    // Makhana
+    { 
+      name: "Premium Makhana", 
+      category: "Makhana", 
+      image: "/images/products/premium-makhana.jpg",
+      description: "Export-grade popped fox nuts (lotus seeds), carefully graded for size, white color, and moisture content. Naturally processed to offer a clean, crunchy, high-protein, and healthy snack alternative.",
+      bgColor: "bg-purple-100", pillBg: "bg-purple-200", pillText: "text-purple-900", badge: "HEALTHY SNACK"
+    },
+    
+    // New Additions
+    { 
+      name: "Potato", 
+      category: "Vegetables", 
+      image: "https://images.unsplash.com/photo-1518977676601-b53f82aba655?q=80&w=2070",
+      description: "Premium quality, farm-fresh export potatoes. Hand-picked and sorted to ensure uniform size, firm texture, and blemish-free skin. Ideal for culinary and commercial uses.",
+      bgColor: "bg-amber-50", pillBg: "bg-amber-200", pillText: "text-amber-800", badge: "FARM FRESH"
+    },
+    { 
+      name: "Ginger", 
+      category: "Vegetables", 
+      image: "https://images.unsplash.com/photo-1615485925600-97237c4fc1ec?q=80&w=2070",
+      description: "Fresh, aromatic ginger roots with strong, pungent flavor. Thoroughly washed and dried for optimal shelf-life during export, perfect for spices, teas, and cooking.",
+      bgColor: "bg-yellow-50", pillBg: "bg-yellow-200", pillText: "text-yellow-800", badge: "PREMIUM QUALITY"
+    },
+    { 
+      name: "Cumin Seeds (Jeera)", 
+      category: "Spices", 
+      image: "https://images.unsplash.com/photo-1596040033229-a9821ebd058d?q=80&w=2070",
+      description: "Aromatic and earthy premium cumin seeds. Carefully cleaned and sorted to remove impurities, delivering an intense flavor profile essential for global cuisines.",
+      bgColor: "bg-orange-50", pillBg: "bg-orange-200", pillText: "text-orange-800", badge: "AROMATIC"
+    },
+    { 
+      name: "Peanuts", 
+      category: "Pulses", 
+      image: "https://images.unsplash.com/photo-1626200419189-39c8c19f5647?q=80&w=2070",
+      description: "High-quality, bold raw peanuts rich in protein and healthy fats. Perfectly sorted for uniform size and low moisture, ideal for roasting, snacking, or oil extraction.",
+      bgColor: "bg-stone-50", pillBg: "bg-stone-200", pillText: "text-stone-700", badge: "PROTEIN RICH"
+    }
+  ];

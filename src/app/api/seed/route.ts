@@ -30,7 +30,8 @@ export async function GET() {
       { name: "Vegetables", slug: "vegetables", description: "Fresh farm vegetables." },
       { name: "Fruits", slug: "fruits", description: "Fresh tropical fruits." },
       { name: "Spices", slug: "spices", description: "Aromatic Indian spices." },
-      { name: "Makhana", slug: "makhana", description: "Healthy premium fox nuts." }
+      { name: "Makhana", slug: "makhana", description: "Healthy premium fox nuts." },
+      { name: "Pulses", slug: "pulses", description: "High-quality protein-rich pulses." }
     ];
 
     for (const category of categories) {
