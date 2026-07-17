@@ -37,7 +37,7 @@ export async function GET() {
     for (const category of categories) {
       await prisma.category.upsert({
         where: { slug: category.slug },
-        update: category,
+        update: {}, // Do not overwrite existing categories
         create: category,
       });
     }
@@ -46,7 +46,7 @@ export async function GET() {
       const slug = product.name.toLowerCase().replace(/\s+/g, '-');
       await prisma.product.upsert({
         where: { slug },
-        update: { ...product, slug },
+        update: {}, // Do not overwrite existing products
         create: { ...product, slug },
       });
     }
