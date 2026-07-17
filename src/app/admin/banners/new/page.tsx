@@ -6,6 +6,8 @@ import Link from 'next/link';
 import { ArrowLeft, Save, Loader2, Image as ImageIcon } from 'lucide-react';
 import { createBannerAction } from '../../actions';
 
+export const dynamic = 'force-dynamic';
+
 export default function NewBannerPage() {
   const router = useRouter();
   const [loading, setLoading] = useState(false);

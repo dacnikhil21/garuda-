@@ -4,6 +4,8 @@ import { EditProductForm } from './edit-form';
 import Link from 'next/link';
 import { ArrowLeft } from 'lucide-react';
 
+export const dynamic = 'force-dynamic';
+
 export default async function EditProductPage({ params }: { params: Promise<{ id: string }> }) {
   const resolvedParams = await params;
   const productId = parseInt(resolvedParams.id, 10);

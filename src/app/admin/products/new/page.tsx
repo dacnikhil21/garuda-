@@ -3,6 +3,8 @@ import { ArrowLeft } from 'lucide-react';
 import { prisma } from '@/lib/prisma';
 import { NewProductForm } from './new-form';
 
+export const dynamic = 'force-dynamic';
+
 export default async function NewProductPage() {
   const uniqueCategories = await prisma.product.findMany({
     select: { category: true },
