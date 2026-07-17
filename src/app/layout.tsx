@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { Inter, Playfair_Display } from "next/font/google";
-import { Navbar } from "@/components/layout/navbar";
-import { Footer } from "@/components/layout/footer";
+import { RootLayoutClient } from "@/components/layout/root-layout-client";
 import "./globals.css";
 
 const inter = Inter({
@@ -42,7 +41,6 @@ export const metadata: Metadata = {
   },
 };
 
-import { SplashScreen } from "@/components/layout/splash-screen";
 
 export default function RootLayout({
   children,
@@ -55,12 +53,9 @@ export default function RootLayout({
       className={`${inter.variable} ${playfair.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col font-sans">
-        <SplashScreen />
-        <Navbar />
-        <main className="flex-1">
+        <RootLayoutClient>
           {children}
-        </main>
-        <Footer />
+        </RootLayoutClient>
       </body>
     </html>
   );

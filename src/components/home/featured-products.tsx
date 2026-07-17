@@ -3,13 +3,8 @@
 import { motion } from "framer-motion";
 import Link from "next/link";
 import { ProductCard } from "@/components/ui/product-card";
-import { allProducts } from "@/data/products";
 
-// Select a few featured products
-const featuredNames = ["Basmathi Rice", "Sona Masuri", "Mirchi G4", "Onions", "Alphonso Mango", "Pomegranate", "Cardamom", "Premium Makhana"];
-const products = allProducts.filter(p => featuredNames.includes(p.name));
-
-export function FeaturedProducts() {
+export function FeaturedProducts({ products }: { products: any[] }) {
   const getWhatsAppLink = (productName: string) => {
     const message = `Hello Garuda Global Exports, I am interested in inquiring about ${productName}.`;
     return `https://wa.me/918143944888?text=${encodeURIComponent(message)}`;

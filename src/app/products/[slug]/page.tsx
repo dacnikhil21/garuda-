@@ -1,4 +1,4 @@
-import { allProducts } from "@/data/products";
+import { prisma } from "@/lib/prisma";
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import Image from "next/image";
@@ -6,9 +6,10 @@ import { ArrowLeft, MessageCircle, ShieldCheck, Truck, PackageCheck, Leaf } from
 
 export default async function ProductDetailPage({ params }: { params: Promise<{ slug: string }> }) {
   const resolvedParams = await params;
-  const product = allProducts.find(
-    (p) => p.name.toLowerCase().replace(/\s+/g, '-') === resolvedParams.slug
-  );
+  
+  const product = await prisma.product.findUnique({
+    where: { slug: resolvedParams.slug }
+  });
 
   if (!product) {
     notFound();
