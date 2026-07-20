@@ -44,8 +44,11 @@ async function handleFileUpload(file: File | null): Promise<string | null> {
 }
 
 export async function loginAction(formData: FormData) {
-  const username = formData.get('username') as string;
+  const rawUsername = formData.get('username') as string;
+  const username = (rawUsername || '').trim().toLowerCase();
   const password = formData.get('password') as string;
+
+  console.log(`Attempting login for username: "${username}"`);
 
   const user = await prisma.user.findUnique({
     where: { username },
@@ -369,5 +372,147 @@ export async function deleteProductAction(id: number) {
     return { success: true };
   } catch (error: any) {
     return { error: error.message || 'Failed to delete product' };
+  }
+}
+
+// Gallery Actions
+
+export async function createGalleryImageAction(formData: FormData) {
+  try {
+    let imageUrl = formData.get('image') as string;
+    const file = formData.get('imageFile') as File | null;
+    
+    if (file && file.size > 0) {
+      const uploadedUrl = await handleFileUpload(file);
+      if (uploadedUrl) imageUrl = uploadedUrl;
+    }
+
+    if (!imageUrl) return { error: 'Image is required' };
+
+    await prisma.galleryImage.create({
+      data: {
+        image: imageUrl,
+        alt: formData.get('alt') as string || null,
+      },
+    });
+
+    revalidatePath('/admin/gallery');
+    revalidatePath('/gallery');
+    return { success: true };
+  } catch (error: any) {
+    return { error: error.message || 'Failed to create gallery image' };
+  }
+}
+
+export async function updateGalleryImageAction(id: number, formData: FormData) {
+  try {
+    let imageUrl = formData.get('image') as string;
+    const file = formData.get('imageFile') as File | null;
+    
+    if (file && file.size > 0) {
+      const uploadedUrl = await handleFileUpload(file);
+      if (uploadedUrl) imageUrl = uploadedUrl;
+    }
+
+    if (!imageUrl) return { error: 'Image is required' };
+
+    await prisma.galleryImage.update({
+      where: { id },
+      data: {
+        image: imageUrl,
+        alt: formData.get('alt') as string || null,
+      },
+    });
+
+    revalidatePath('/admin/gallery');
+    revalidatePath('/gallery');
+    return { success: true };
+  } catch (error: any) {
+    return { error: error.message || 'Failed to update gallery image' };
+  }
+}
+
+export async function deleteGalleryImageAction(id: number) {
+  try {
+    await prisma.galleryImage.delete({
+      where: { id },
+    });
+    revalidatePath('/admin/gallery');
+    revalidatePath('/gallery');
+    return { success: true };
+  } catch (error: any) {
+    return { error: error.message || 'Failed to delete gallery image' };
+  }
+}
+
+// License Actions
+
+export async function createLicenseAction(formData: FormData) {
+  try {
+    let imageUrl = formData.get('image') as string;
+    const file = formData.get('imageFile') as File | null;
+    
+    if (file && file.size > 0) {
+      const uploadedUrl = await handleFileUpload(file);
+      if (uploadedUrl) imageUrl = uploadedUrl;
+    }
+
+    if (!imageUrl) return { error: 'Image is required' };
+
+    await prisma.license.create({
+      data: {
+        title: formData.get('title') as string || null,
+        image: imageUrl,
+        alt: formData.get('alt') as string || null,
+      },
+    });
+
+    revalidatePath('/admin/licenses');
+    revalidatePath('/licenses');
+    return { success: true };
+  } catch (error: any) {
+    return { error: error.message || 'Failed to create license' };
+  }
+}
+
+export async function updateLicenseAction(id: number, formData: FormData) {
+  try {
+    let imageUrl = formData.get('image') as string;
+    const file = formData.get('imageFile') as File | null;
+    
+    if (file && file.size > 0) {
+      const uploadedUrl = await handleFileUpload(file);
+      if (uploadedUrl) imageUrl = uploadedUrl;
+    }
+
+    if (!imageUrl) return { error: 'Image is required' };
+
+    await prisma.license.update({
+      where: { id },
+      data: {
+        title: formData.get('title') as string || null,
+        image: imageUrl,
+        alt: formData.get('alt') as string || null,
+      },
+    });
+
+    revalidatePath('/admin/licenses');
+    revalidatePath('/licenses');
+    return { success: true };
+  } catch (error: any) {
+    return { error: error.message || 'Failed to update license' };
+  }
+}
+
+export async function deleteLicenseAction(id: number) {
+  try {
+    await prisma.license.delete({
+      where: { id },
+    });
+    revalidatePath('/admin/licenses');
+    revalidatePath('/licenses');
+    return { success: true };
+  } catch (error: any) {
+    return { error: error.message || 'Failed to delete license' };
   }
 }

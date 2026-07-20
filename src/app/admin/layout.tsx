@@ -53,6 +53,12 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
           <Link href="/admin/banners" onClick={() => setIsMobileMenuOpen(false)} className={`flex items-center gap-3 px-4 py-3 rounded-xl transition-colors font-bold tracking-widest text-xs uppercase ${pathname.startsWith('/admin/banners') ? 'bg-accent text-[#0B1F3A]' : 'text-slate-400 hover:text-white hover:bg-white/5'}`}>
             <Image className="w-4 h-4" /> Banners
           </Link>
+          <Link href="/admin/gallery" onClick={() => setIsMobileMenuOpen(false)} className={`flex items-center gap-3 px-4 py-3 rounded-xl transition-colors font-bold tracking-widest text-xs uppercase ${pathname.startsWith('/admin/gallery') ? 'bg-accent text-[#0B1F3A]' : 'text-slate-400 hover:text-white hover:bg-white/5'}`}>
+            <Image className="w-4 h-4" /> Gallery
+          </Link>
+          <Link href="/admin/licenses" onClick={() => setIsMobileMenuOpen(false)} className={`flex items-center gap-3 px-4 py-3 rounded-xl transition-colors font-bold tracking-widest text-xs uppercase ${pathname.startsWith('/admin/licenses') ? 'bg-accent text-[#0B1F3A]' : 'text-slate-400 hover:text-white hover:bg-white/5'}`}>
+            <Image className="w-4 h-4" /> Licenses
+          </Link>
         </nav>
       </div>
 
