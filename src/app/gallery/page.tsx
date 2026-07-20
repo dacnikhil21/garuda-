@@ -7,8 +7,6 @@ export const metadata: Metadata = {
   description: 'Explore the quality and excellence of Garuda Global Exports through our visual showcase.',
 };
 
-export const dynamic = 'force-dynamic';
-
 export default async function GalleryPage() {
   const dbImages = await prisma.galleryImage.findMany({
     select: { id: true, image: true, alt: true },

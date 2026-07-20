@@ -36,11 +36,12 @@ export function ProductCard({ product, index = 0 }: { product: Product, index?: 
     >
       {/* Image Top */}
       <div className="relative h-[220px] overflow-hidden rounded-b-3xl">
-         <div className="w-full h-full relative">
+          <div className="w-full h-full relative">
             <Image 
               src={product.image} 
               alt={product.name}
               fill
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
               className="object-cover transform group-hover:scale-110 transition-transform duration-700 ease-out"
             />
          </div>

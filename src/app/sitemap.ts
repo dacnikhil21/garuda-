@@ -1,9 +1,11 @@
 import { MetadataRoute } from "next";
-import { allProducts } from "@/data/products";
+import { prisma } from "@/lib/prisma";
 
-export default function sitemap(): MetadataRoute.Sitemap {
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
+  const allProducts = await prisma.product.findMany();
+  
   const products = allProducts.map((product) => ({
-    url: `https://garudaexports.in/products/${product.name.toLowerCase().replace(/\s+/g, "-")}`,
+    url: `https://garudaexports.in/products/${product.slug}`,
     lastModified: new Date(),
     changeFrequency: "weekly" as const,
     priority: 0.8,

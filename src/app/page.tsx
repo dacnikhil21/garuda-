@@ -8,8 +8,6 @@ import { QualityCertifications } from "@/components/home/quality-certifications"
 import { ContactCTA } from "@/components/home/contact-cta";
 import { prisma } from "@/lib/prisma";
 
-export const dynamic = 'force-dynamic';
-
 export default async function Home() {
   const featuredNames = ["Basmathi Rice", "Potato", "Ginger", "Cumin Seeds (Jeera)", "Peanuts", "Pomegranate", "Cardamom", "Premium Makhana"];
   const products = await prisma.product.findMany({

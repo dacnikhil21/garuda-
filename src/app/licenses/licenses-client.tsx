@@ -112,6 +112,7 @@ export default function LicensesClient({ dbLicenses }: { dbLicenses: License[] }
                 src={selectedImage}
                 alt="Enlarged view"
                 fill
+                sizes="100vw"
                 className="object-contain"
                 quality={100}
               />

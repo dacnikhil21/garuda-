@@ -135,25 +135,37 @@ export const allProducts = [
       description: "Premium quality, farm-fresh export potatoes. Hand-picked and sorted to ensure uniform size, firm texture, and blemish-free skin. Ideal for culinary and commercial uses.",
       bgColor: "bg-amber-50", pillBg: "bg-amber-200", pillText: "text-amber-800", badge: "FARM FRESH"
     },
-    { 
-      name: "Ginger", 
-      category: "Vegetables", 
-      image: "https://images.unsplash.com/photo-1615485925600-97237c4fc1ec?q=80&w=2070",
-      description: "Fresh, aromatic ginger roots with strong, pungent flavor. Thoroughly washed and dried for optimal shelf-life during export, perfect for spices, teas, and cooking.",
-      bgColor: "bg-yellow-50", pillBg: "bg-yellow-200", pillText: "text-yellow-800", badge: "PREMIUM QUALITY"
+    {
+      id: 22,
+      name: "Ginger",
+      category: "Vegetables",
+      image: "/images/whatsapp/ginger.jpeg",
+      description: "Fresh, pungent Ginger roots, washed and packed to maintain maximum freshness during transit.",
+      bgColor: "bg-[#F3FAF7]",
+      pillBg: "bg-[#D1F4E0]",
+      pillText: "text-[#059669]",
+      badge: "Export Quality"
     },
-    { 
-      name: "Cumin Seeds (Jeera)", 
-      category: "Spices", 
-      image: "https://images.unsplash.com/photo-1596040033229-a9821ebd058d?q=80&w=2070",
-      description: "Aromatic and earthy premium cumin seeds. Carefully cleaned and sorted to remove impurities, delivering an intense flavor profile essential for global cuisines.",
-      bgColor: "bg-orange-50", pillBg: "bg-orange-200", pillText: "text-orange-800", badge: "AROMATIC"
+    {
+      id: 20,
+      name: "Cumin Seeds (Jeera)",
+      category: "Spices",
+      image: "/images/whatsapp/cumin.jpeg",
+      description: "Export-grade Cumin Seeds (Jeera) sourced directly from the best farms in India.",
+      bgColor: "bg-[#FFF9EB]",
+      pillBg: "bg-[#FEF3C7]",
+      pillText: "text-[#D97706]",
+      badge: "Export Quality"
     },
-    { 
-      name: "Peanuts", 
-      category: "Pulses", 
-      image: "https://images.unsplash.com/photo-1626200419189-39c8c19f5647?q=80&w=2070",
-      description: "High-quality, bold raw peanuts rich in protein and healthy fats. Perfectly sorted for uniform size and low moisture, ideal for roasting, snacking, or oil extraction.",
-      bgColor: "bg-stone-50", pillBg: "bg-stone-200", pillText: "text-stone-700", badge: "PROTEIN RICH"
+    {
+      id: 21,
+      name: "Peanuts",
+      category: "Grains & Seeds",
+      image: "/images/whatsapp/peanut.jpeg",
+      description: "Premium Indian Peanuts, rich in flavor and carefully sorted for export.",
+      bgColor: "bg-[#FFF9EB]",
+      pillBg: "bg-[#FEF3C7]",
+      pillText: "text-[#D97706]",
+      badge: "Export Quality"
     }
   ];

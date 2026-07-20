@@ -36,10 +36,7 @@ async function main() {
     const slug = product.name.toLowerCase().replace(/\s+/g, '-');
     const dbProduct = await prisma.product.upsert({
       where: { slug: slug },
-      update: {
-        ...product,
-        slug,
-      },
+      update: {}, // DO NOT OVERWRITE EXISTING USER EDITS!
       create: {
         ...product,
         slug,

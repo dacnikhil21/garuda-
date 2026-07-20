@@ -4,8 +4,6 @@ import Link from "next/link";
 import Image from "next/image";
 import { ArrowLeft, MessageCircle, ShieldCheck, Truck, PackageCheck, Leaf } from "lucide-react";
 
-export const dynamic = 'force-dynamic';
-
 export default async function ProductDetailPage({ params }: { params: Promise<{ slug: string }> }) {
   const resolvedParams = await params;
   
@@ -26,7 +24,7 @@ export default async function ProductDetailPage({ params }: { params: Promise<{ 
     <div className="pt-32 pb-24 min-h-screen bg-[#FAF9F6] font-sans selection:bg-accent/30 selection:text-primary">
       <div className="container mx-auto px-6">
         
-        <Link href="/products" className="inline-flex items-center gap-2 text-sm font-bold tracking-widest uppercase text-gray-500 hover:text-accent transition-colors mb-12">
+        <Link href="/#catalog" className="inline-flex items-center gap-2 text-sm font-bold tracking-widest uppercase text-gray-500 hover:text-accent transition-colors mb-12">
           <ArrowLeft className="w-4 h-4" /> Back to Catalog
         </Link>
 
@@ -40,6 +38,7 @@ export default async function ProductDetailPage({ params }: { params: Promise<{ 
                 src={product.image} 
                 alt={product.name} 
                 fill
+                sizes="(max-width: 1024px) 100vw, 50vw"
                 className="object-cover transform hover:scale-110 transition-transform duration-1000 ease-out"
               />
             </div>

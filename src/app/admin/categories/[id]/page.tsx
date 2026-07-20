@@ -4,8 +4,9 @@ import { EditCategoryForm } from './edit-category-form';
 
 export const dynamic = 'force-dynamic';
 
-export default async function EditCategoryPage({ params }: { params: { id: string } }) {
-  const categoryId = parseInt(params.id);
+export default async function EditCategoryPage({ params }: { params: Promise<{ id: string }> }) {
+  const resolvedParams = await params;
+  const categoryId = parseInt(resolvedParams.id);
   
   if (isNaN(categoryId)) {
     notFound();

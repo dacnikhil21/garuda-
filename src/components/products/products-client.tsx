@@ -185,7 +185,7 @@ export function ProductsClient({ initialProducts }: { initialProducts: any[] }) 
                       ? "ring-2 ring-offset-2 ring-accent"
                       : "ring-0"
                   )}>
-                    <Image src={cat.image} alt={cat.name} fill className="object-cover" />
+                    <Image src={cat.image} alt={cat.name} fill sizes="96px" className="object-cover" />
                   </div>
                   <span className={cn(
                     "text-[10px] sm:text-xs font-bold tracking-widest uppercase",

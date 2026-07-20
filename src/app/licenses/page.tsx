@@ -7,8 +7,6 @@ export const metadata: Metadata = {
   description: 'We are fully certified and licensed to provide you with the highest quality global exports.',
 };
 
-export const dynamic = 'force-dynamic';
-
 export default async function LicensesPage() {
   const dbLicenses = await prisma.license.findMany({
     select: { id: true, image: true, alt: true },
