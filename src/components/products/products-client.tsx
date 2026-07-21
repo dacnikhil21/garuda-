@@ -49,15 +49,16 @@ export function ProductsClient({ initialProducts }: { initialProducts: any[] }) 
     <div className="bg-[#FAF9F6] min-h-screen font-sans selection:bg-accent/30 selection:text-primary">
       
       {/* Premium Hero Section */}
-      <section className="relative h-screen min-h-[600px] md:min-h-[800px] flex items-center justify-center overflow-hidden">
+      <section className="relative h-screen min-h-[600px] md:min-h-[800px] flex items-center justify-center overflow-hidden bg-[#0B1F3A]">
         {/* Full Screen Video Background */}
-        <motion.div style={{ y }} className="absolute inset-0 w-full h-[120%] -top-[10%]">
+        <motion.div style={{ y }} className="absolute inset-0 w-full h-[120%] -top-[10%] bg-[#0B1F3A]">
           <video
             autoPlay
             loop
             muted
             playsInline
-            className="absolute inset-0 w-full h-full object-cover"
+            preload="auto"
+            className="absolute inset-0 w-full h-full object-cover bg-[#0B1F3A]"
           >
             <source src="/producthero.mp4" type="video/mp4" />
           </video>

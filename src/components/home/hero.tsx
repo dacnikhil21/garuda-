@@ -14,7 +14,8 @@ export function Hero() {
           loop
           muted
           playsInline
-          className="w-full h-full object-cover"
+          preload="auto"
+          className="w-full h-full object-cover bg-black"
         >
           <source src="/homepagehero.mp4" type="video/mp4" />
         </video>
