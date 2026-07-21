@@ -51,7 +51,7 @@ export function Footer() {
           <div>
             <h4 className="font-heading text-xl font-semibold mb-6">Our Products</h4>
             <ul className="space-y-4">
-              {["Rice", "Vegetables", "Spices", "Fruits", "Makhana"].map((product) => (
+              {["Rice", "Vegetables", "Spices", "Fruits", "Makhana", "Pulses"].map((product) => (
                 <li key={product}>
                   <Link href={`/products#catalog`} className="text-white/70 hover:text-accent transition-colors">
                     {product}
@@ -65,8 +65,8 @@ export function Footer() {
           <div>
             <h4 className="font-heading text-xl font-semibold mb-6">Contact Us</h4>
             <ul className="space-y-4 text-white/70">
-              <li>Garuda Global Exports</li>
-              <li>Since 2 years</li>
+              <li className="font-bold text-white">Garuda Global Exports</li>
+              <li>Kakinada, Andhra Pradesh, India</li>
               <li className="pt-2">
                 <a href="mailto:Garudaaglobalexports@gmail.com" className="hover:text-accent transition-colors block">
                   Garudaaglobalexports@gmail.com

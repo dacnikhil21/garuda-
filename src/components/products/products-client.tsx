@@ -27,7 +27,8 @@ const categories = [
   { name: "Vegetables", image: "/images/categories/vegetables.jpg" },
   { name: "Fruits", image: "/images/categories/fruits.jpg" },
   { name: "Spices", image: "/images/categories/spices.jpg" },
-  { name: "Makhana", image: "/images/categories/makhana.jpg" }
+  { name: "Makhana", image: "/images/categories/makhana.jpg" },
+  { name: "Pulses", image: "/images/categories/pulses.jpg" }
 ];
 
 export function ProductsClient({ initialProducts }: { initialProducts: any[] }) {

@@ -109,7 +109,7 @@ export default function ContactPage() {
                   <MapPin className="w-5 h-5 text-accent" />
                 </div>
                 <h3 className="text-sm font-bold tracking-[0.1em] uppercase text-slate-400 mb-2">Global Headquarters</h3>
-                <p className="text-lg font-heading font-bold text-primary">Hyderabad, India</p>
+                <p className="text-lg font-heading font-bold text-primary">Kakinada, Andhra Pradesh, India</p>
                 <p className="text-sm text-slate-500 mt-2">Serving 40+ countries globally.</p>
               </motion.div>
 
@@ -137,28 +137,28 @@ export default function ContactPage() {
                 <form onSubmit={handleSubmit} className="space-y-6">
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div className="space-y-2">
-                      <label className="text-sm font-bold text-slate-700 uppercase tracking-wider">Full Name</label>
+                      <label className="text-sm font-bold text-[#0B1F3A] uppercase tracking-wider">Full Name</label>
                       <input required type="text" className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:border-accent focus:ring-2 focus:ring-accent/20 outline-none transition-all bg-slate-50 focus:bg-white" placeholder="John Doe" />
                     </div>
                     <div className="space-y-2">
-                      <label className="text-sm font-bold text-slate-700 uppercase tracking-wider">Company Name</label>
+                      <label className="text-sm font-bold text-[#0B1F3A] uppercase tracking-wider">Company Name</label>
                       <input required type="text" className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:border-accent focus:ring-2 focus:ring-accent/20 outline-none transition-all bg-slate-50 focus:bg-white" placeholder="Global Imports LLC" />
                     </div>
                   </div>
 
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div className="space-y-2">
-                      <label className="text-sm font-bold text-slate-700 uppercase tracking-wider">Email Address</label>
+                      <label className="text-sm font-bold text-[#0B1F3A] uppercase tracking-wider">Email Address</label>
                       <input required type="email" className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:border-accent focus:ring-2 focus:ring-accent/20 outline-none transition-all bg-slate-50 focus:bg-white" placeholder="john@company.com" />
                     </div>
                     <div className="space-y-2">
-                      <label className="text-sm font-bold text-slate-700 uppercase tracking-wider">Phone / WhatsApp</label>
+                      <label className="text-sm font-bold text-[#0B1F3A] uppercase tracking-wider">Phone / WhatsApp</label>
                       <input required type="tel" className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:border-accent focus:ring-2 focus:ring-accent/20 outline-none transition-all bg-slate-50 focus:bg-white" placeholder="+1 (555) 000-0000" />
                     </div>
                   </div>
 
                   <div className="space-y-2">
-                    <label className="text-sm font-bold text-slate-700 uppercase tracking-wider">Product Interest</label>
+                    <label className="text-sm font-bold text-[#0B1F3A] uppercase tracking-wider">Product Interest</label>
                     <select required className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:border-accent focus:ring-2 focus:ring-accent/20 outline-none transition-all bg-slate-50 focus:bg-white text-slate-700">
                       <option value="">Select a Product Category</option>
                       <option value="rice">Premium Rice (Basmati / Non-Basmati)</option>
@@ -166,6 +166,7 @@ export default function ContactPage() {
                       <option value="makhana">Makhana (Fox Nuts)</option>
                       <option value="fruits">Export Quality Fruits</option>
                       <option value="spices">Authentic Spices</option>
+                      <option value="pulses">Pulses & Peanuts</option>
                       <option value="other">Other / General Inquiry</option>
                     </select>
                   </div>

@@ -160,7 +160,7 @@ export const allProducts = [
     {
       id: 21,
       name: "Peanuts",
-      category: "Grains & Seeds",
+      category: "Pulses",
       image: "/images/whatsapp/peanut.jpeg",
       description: "Premium Indian Peanuts, rich in flavor and carefully sorted for export.",
       bgColor: "bg-[#FFF9EB]",

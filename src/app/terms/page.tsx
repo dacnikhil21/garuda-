@@ -20,7 +20,7 @@ export default function TermsOfService() {
 
           <h2 className="text-2xl font-bold mt-12 mb-6">2. Products and Services</h2>
           <p className="mb-6">
-            Garuda Global Exports specializes in the export of agricultural products including Rice, Vegetables, Fruits, Spices, and Makhana. All products are subject to availability and we reserve the right to impose quantity limits on any order, to reject all or part of an order, and to discontinue products without notice, even if you have already placed your order.
+            Garuda Global Exports specializes in the export of agricultural products including Rice, Vegetables, Fruits, Spices, Makhana, and Pulses. All products are subject to availability and we reserve the right to impose quantity limits on any order, to reject all or part of an order, and to discontinue products without notice, even if you have already placed your order.
           </p>
 
           <h2 className="text-2xl font-bold mt-12 mb-6">3. Pricing and Quotes</h2>
