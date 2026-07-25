@@ -7,6 +7,8 @@ import { Leaf, LogOut, Package, Plus, LayoutDashboard, FolderTree, Image, Menu, 
 import { logoutAction } from './actions';
 import { useRouter } from 'next/navigation';
 
+import NextImage from 'next/image';
+
 export default function AdminLayout({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
   const router = useRouter();
@@ -24,15 +26,15 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
   const SidebarContent = () => (
     <>
       <div className="p-6 flex items-center justify-between border-b border-white/10">
-        <div className="flex items-center gap-3">
-          <div className="w-10 h-10 bg-white/10 rounded-xl flex items-center justify-center">
-            <Leaf className="w-5 h-5 text-accent" />
-          </div>
-          <div>
-            <h2 className="font-heading font-bold text-lg leading-none">Garuda</h2>
-            <span className="text-[10px] tracking-widest text-accent uppercase font-bold">Admin Portal</span>
-          </div>
-        </div>
+        <Link href="/" className="flex items-center gap-3">
+          <NextImage
+            src="/garuda-logo-light.png"
+            alt="Garuda Global Exports Logo"
+            width={160}
+            height={48}
+            className="h-9 w-auto object-contain"
+          />
+        </Link>
         {/* Close button for mobile */}
         <button className="md:hidden text-white/50 hover:text-white" onClick={() => setIsMobileMenuOpen(false)}>
           <X className="w-6 h-6" />

@@ -4,7 +4,8 @@ import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { motion } from 'framer-motion';
 import { loginAction } from '../actions';
-import { Leaf, Lock, User, Loader2, ArrowRight } from 'lucide-react';
+import { Lock, User, Loader2, ArrowRight } from 'lucide-react';
+import Image from 'next/image';
 import Link from 'next/link';
 
 export default function AdminLogin() {
@@ -23,7 +24,7 @@ export default function AdminLogin() {
     if (result.error) {
       setError(result.error);
       setLoading(false);
-    } else {
+    } else if (result.success) {
       router.push('/admin');
     }
   }
@@ -45,10 +46,14 @@ export default function AdminLogin() {
         className="w-full max-w-md relative z-10"
       >
         <div className="bg-white/80 backdrop-blur-xl rounded-3xl p-8 md:p-10 shadow-[0_8px_40px_rgba(0,0,0,0.04)] border border-white">
-          <div className="flex justify-center mb-8">
-            <div className="w-16 h-16 bg-[#0B1F3A] rounded-2xl flex items-center justify-center shadow-lg transform rotate-3">
-              <Leaf className="w-8 h-8 text-accent -rotate-3" />
-            </div>
+          <div className="flex justify-center mb-6">
+            <Image
+              src="/garuda-logo.png"
+              alt="Garuda Global Exports Logo"
+              width={200}
+              height={60}
+              className="h-14 w-auto object-contain"
+            />
           </div>
           
           <div className="text-center mb-10">

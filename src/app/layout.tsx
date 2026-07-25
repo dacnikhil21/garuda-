@@ -17,6 +17,11 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://garudaexports.in"),
   title: "Garuda Global Exports",
   description: "Premium Agricultural Exports with Trust, Quality and Global Reach.",
+  icons: {
+    icon: "/garuda-logo.svg",
+    shortcut: "/garuda-logo.png",
+    apple: "/garuda-logo.png",
+  },
   openGraph: {
     title: "Garuda Global Exports",
     description: "Premium Agricultural Exports with Trust, Quality and Global Reach.",

@@ -9,24 +9,14 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
           {/* Brand */}
           <div className="col-span-1 lg:col-span-1">
-            <Link href="/" className="inline-flex items-center gap-3 mb-6">
-              <div className="w-12 h-12 rounded-full flex items-center justify-center relative group-hover:scale-105 transition-transform duration-500">
-               {/* Snake-like Arrow SVG */}
-               <div className="absolute inset-0 text-accent">
-                 <svg viewBox="0 0 100 100" fill="none" stroke="currentColor" strokeWidth="4" className="w-full h-full drop-shadow-md overflow-visible">
-                   <g transform="rotate(-15 50 50)">
-                     <path d="M 10 50 A 40 15 0 1 1 90 50 A 40 15 0 1 1 10 50" pathLength="100" strokeDasharray="40 60" strokeLinecap="round">
-                       <animate attributeName="stroke-dashoffset" from="100" to="0" dur="1.5s" repeatCount="indefinite" />
-                     </path>
-                   </g>
-                 </svg>
-               </div>
-               <span className="text-white font-heading font-bold text-sm tracking-widest relative z-10">GGE</span>
-              </div>
-              <div className="flex flex-col">
-                <span className="font-heading font-bold text-2xl leading-none tracking-widest text-white">GARUDA</span>
-                <span className="text-xs font-bold tracking-[0.2em] text-white/70">GLOBAL EXPORTS</span>
-              </div>
+            <Link href="/" className="inline-flex items-center gap-3 mb-6 group">
+              <Image
+                src="/garuda-logo-light.png"
+                alt="Garuda Global Exports Logo"
+                width={220}
+                height={70}
+                className="h-12 md:h-14 w-auto object-contain transition-transform duration-300 group-hover:scale-105"
+              />
             </Link>
             <p className="text-white/70 mb-6 font-light leading-relaxed">
               Connecting Indian Agriculture to the World. Premium agricultural exports with trust, quality, and global reach.

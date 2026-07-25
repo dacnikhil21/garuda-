@@ -60,29 +60,15 @@ export function Navbar() {
         <div className="container mx-auto px-6 lg:px-12 flex items-center justify-between">
           
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-4 z-50 group">
-            <div className="w-12 h-12 rounded-full flex items-center justify-center relative group-hover:scale-105 transition-transform duration-500">
-               {/* Snake-like Arrow SVG */}
-               <div className="absolute inset-0 text-accent/80 group-hover:text-accent transition-colors duration-500">
-                 <svg viewBox="0 0 100 100" fill="none" stroke="currentColor" strokeWidth="4" className="w-full h-full drop-shadow-md overflow-visible">
-                   <g transform="rotate(-15 50 50)">
-                     {/* Normalizing path length to 100 makes animating it perfectly accurate */}
-                     <path d="M 10 50 A 40 15 0 1 1 90 50 A 40 15 0 1 1 10 50" pathLength="100" strokeDasharray="40 60" strokeLinecap="round">
-                       <animate attributeName="stroke-dashoffset" from="100" to="0" dur="1.5s" repeatCount="indefinite" />
-                     </path>
-                   </g>
-                 </svg>
-               </div>
-               <span className="text-white font-heading font-bold text-sm tracking-widest relative z-10 group-hover:text-accent transition-colors duration-500">GGE</span>
-            </div>
-            <div className="flex flex-col">
-              <span className="font-heading text-xl md:text-2xl font-bold text-white tracking-widest leading-none uppercase drop-shadow-md">
-                GARUDA
-              </span>
-              <span className="text-white/70 text-[0.65rem] font-medium tracking-[0.3em] uppercase leading-tight mt-1 drop-shadow-md">
-                Global Exports
-              </span>
-            </div>
+          <Link href="/" className="flex items-center gap-3 z-50 group">
+            <Image
+              src="/garuda-logo-light.png"
+              alt="Garuda Global Exports Logo"
+              width={200}
+              height={60}
+              className="h-10 md:h-12 w-auto object-contain transition-transform duration-300 group-hover:scale-105"
+              priority
+            />
           </Link>
 
           {/* Desktop Nav - Centered */}
