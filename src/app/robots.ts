@@ -7,6 +7,6 @@ export default function robots(): MetadataRoute.Robots {
       allow: '/',
       disallow: '/admin/',
     },
-    sitemap: 'https://garudaglobalexports.in/sitemap.xml',
+    sitemap: 'https://garudaglobalexports.co.in/sitemap.xml',
   }
 }
