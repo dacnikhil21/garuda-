@@ -14,7 +14,7 @@ const playfair = Playfair_Display({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://garudaexports.in"),
+  metadataBase: new URL("https://garudaglobalexports.in"),
   title: "Garuda Global Exports",
   description: "Premium Agricultural Exports with Trust, Quality and Global Reach.",
   icons: {
@@ -25,7 +25,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Garuda Global Exports",
     description: "Premium Agricultural Exports with Trust, Quality and Global Reach.",
-    url: "https://garudaexports.in",
+    url: "https://garudaglobalexports.in",
     siteName: "Garuda Global Exports",
     images: [
       {

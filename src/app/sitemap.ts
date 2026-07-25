@@ -5,7 +5,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const allProducts = await prisma.product.findMany();
   
   const products = allProducts.map((product) => ({
-    url: `https://garudaexports.in/products/${product.slug}`,
+    url: `https://garudaglobalexports.in/products/${product.slug}`,
     lastModified: new Date(),
     changeFrequency: "weekly" as const,
     priority: 0.8,
@@ -13,25 +13,25 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
   return [
     {
-      url: "https://garudaexports.in",
+      url: "https://garudaglobalexports.in",
       lastModified: new Date(),
       changeFrequency: "monthly",
       priority: 1,
     },
     {
-      url: "https://garudaexports.in/about",
+      url: "https://garudaglobalexports.in/about",
       lastModified: new Date(),
       changeFrequency: "monthly",
       priority: 0.8,
     },
     {
-      url: "https://garudaexports.in/products",
+      url: "https://garudaglobalexports.in/products",
       lastModified: new Date(),
       changeFrequency: "weekly",
       priority: 0.9,
     },
     {
-      url: "https://garudaexports.in/contact",
+      url: "https://garudaglobalexports.in/contact",
       lastModified: new Date(),
       changeFrequency: "monthly",
       priority: 0.7,
