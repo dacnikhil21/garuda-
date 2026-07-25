@@ -3,8 +3,16 @@ import LicensesClient from './licenses-client';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Licenses | Garuda Global Exports',
-  description: 'We are fully certified and licensed to provide you with the highest quality global exports.',
+  title: 'Export Certifications & Licenses',
+  description: 'Garuda Global Exports is fully certified and licensed by agricultural export governing bodies in India for global trade.',
+  alternates: {
+    canonical: 'https://garudaglobalexports.co.in/licenses',
+  },
+  openGraph: {
+    title: 'Export Certifications & Licenses | Garuda Global Exports',
+    description: 'Explore our government certifications and licenses ensuring global trade compliance.',
+    url: 'https://garudaglobalexports.co.in/licenses',
+  },
 };
 
 export default async function LicensesPage() {

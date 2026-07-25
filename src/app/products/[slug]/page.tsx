@@ -1,8 +1,44 @@
+import type { Metadata } from "next";
 import { prisma } from "@/lib/prisma";
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import Image from "next/image";
 import { ArrowLeft, MessageCircle, ShieldCheck, Truck, PackageCheck, Leaf } from "lucide-react";
+
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
+  const resolvedParams = await params;
+  const product = await prisma.product.findUnique({
+    where: { slug: resolvedParams.slug }
+  });
+
+  if (!product) {
+    return {
+      title: "Product Not Found",
+    };
+  }
+
+  const title = `${product.name} Exporter`;
+  const description = product.description || `Buy certified export-quality ${product.name} directly from Garuda Global Exports. Premium Indian agricultural export.`;
+
+  return {
+    title,
+    description,
+    alternates: {
+      canonical: `https://garudaglobalexports.co.in/products/${product.slug}`,
+    },
+    openGraph: {
+      title: `${product.name} | Garuda Global Exports`,
+      description,
+      url: `https://garudaglobalexports.co.in/products/${product.slug}`,
+      images: [
+        {
+          url: product.image,
+          alt: product.name,
+        }
+      ],
+    },
+  };
+}
 
 export default async function ProductDetailPage({ params }: { params: Promise<{ slug: string }> }) {
   const resolvedParams = await params;
@@ -15,6 +51,28 @@ export default async function ProductDetailPage({ params }: { params: Promise<{ 
     notFound();
   }
 
+  const productSchema = {
+    "@context": "https://schema.org/",
+    "@type": "Product",
+    "name": product.name,
+    "image": product.image,
+    "description": product.description || `Premium export quality ${product.name} from India.`,
+    "category": product.category,
+    "brand": {
+      "@type": "Brand",
+      "name": "Garuda Global Exports"
+    },
+    "offers": {
+      "@type": "AggregateOffer",
+      "priceCurrency": "USD",
+      "availability": "https://schema.org/InStock",
+      "seller": {
+        "@type": "Organization",
+        "name": "Garuda Global Exports"
+      }
+    }
+  };
+
   const getWhatsAppLink = (productName: string) => {
     const message = `Hello Garuda Global Exports, I am interested in inquiring about ${productName}.`;
     return `https://wa.me/918143944888?text=${encodeURIComponent(message)}`;
@@ -22,6 +80,10 @@ export default async function ProductDetailPage({ params }: { params: Promise<{ 
 
   return (
     <div className="pt-32 pb-24 min-h-screen bg-[#FAF9F6] font-sans selection:bg-accent/30 selection:text-primary">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(productSchema) }}
+      />
       <div className="container mx-auto px-6">
         
         <Link href="/#catalog" className="inline-flex items-center gap-2 text-sm font-bold tracking-widest uppercase text-gray-500 hover:text-accent transition-colors mb-12">
