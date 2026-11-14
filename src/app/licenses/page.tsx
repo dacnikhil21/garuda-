@@ -2,6 +2,8 @@ import { prisma } from '@/lib/prisma';
 import LicensesClient from './licenses-client';
 import { Metadata } from 'next';
 
+export const dynamic = 'force-dynamic';
+
 export const metadata: Metadata = {
   title: 'Export Certifications & Licenses',
   description: 'Garuda Global Exports is fully certified and licensed by agricultural export governing bodies in India for global trade.',

@@ -1,15 +1,21 @@
 import { MetadataRoute } from "next";
 import { prisma } from "@/lib/prisma";
 
+export const dynamic = 'force-dynamic';
+
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const allProducts = await prisma.product.findMany();
-  
-  const products = allProducts.map((product) => ({
-    url: `https://garudaglobalexports.co.in/products/${product.slug}`,
-    lastModified: new Date(),
-    changeFrequency: "weekly" as const,
-    priority: 0.8,
-  }));
+  let products: { url: string; lastModified: Date; changeFrequency: "weekly"; priority: number }[] = [];
+  try {
+    const allProducts = await prisma.product.findMany();
+    products = allProducts.map((product) => ({
+      url: `https://garudaglobalexports.co.in/products/${product.slug}`,
+      lastModified: new Date(),
+      changeFrequency: "weekly" as const,
+      priority: 0.8,
+    }));
+  } catch (err) {
+    console.error("Failed to fetch products for sitemap:", err);
+  }
 
   return [
     {

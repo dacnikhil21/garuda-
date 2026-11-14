@@ -2,6 +2,8 @@ import type { Metadata } from 'next';
 import { prisma } from '@/lib/prisma';
 import { ProductsClient } from '@/components/products/products-client';
 
+export const dynamic = 'force-dynamic';
+
 export const metadata: Metadata = {
   title: 'Agricultural Products Catalog',
   description: 'Explore our export catalog of premium Indian agricultural produce: Rice, Fresh Vegetables, Spices, Fruits, Makhana & Pulses. Certified export quality.',

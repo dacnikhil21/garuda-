@@ -2,6 +2,8 @@ import { prisma } from '@/lib/prisma';
 import GalleryClient from './gallery-client';
 import { Metadata } from 'next';
 
+export const dynamic = 'force-dynamic';
+
 export const metadata: Metadata = {
   title: 'Export Quality Gallery Showcase',
   description: 'Explore the quality, processing, packaging, and export excellence of Garuda Global Exports through our visual showcase.',
